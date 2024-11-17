@@ -1,0 +1,45 @@
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-radius: 5px;
+    width: 75%;
+    align-content: center;
+}
+
+table td, table th
+{
+    border: 1px solid #dddddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even)
+{
+    background-color: #e4e4e4;
+}
+
+table tr:hover {
+    background-color: rgba(0, 105, 217 ,0.5);
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Hide the action buttons by default */
+.product-row .actions {
+    visibility: hidden;
+}
+
+/* Show action buttons when hovering over the row */
+.product-row:hover .actions {
+    visibility: visible;
+}
+
+/* Additional styling for buttons if needed */
+.actions button {
+    margin-left: 5px;
+}
