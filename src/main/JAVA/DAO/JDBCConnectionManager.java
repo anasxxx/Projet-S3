@@ -11,7 +11,7 @@ import java.util.Properties;
 
 import static java.lang.Class.forName;
 
-public class DaoConnection implements DAO
+public class JDBCConnectionManager implements DAO
 {
     private static final String PROPERTIES_FILE = "C:/Users/pc/Desktop/untitled/src/main/resources/DAO.properties";
     private static String driver;
