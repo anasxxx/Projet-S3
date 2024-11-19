@@ -1,14 +1,14 @@
 package Bean;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class DepensesBean implements Serializable
 {
     int id;
     int id_user;
     String description;
-    LocalDate date;
+    Date date;
     float montant;
 
     public int getId() {
@@ -35,11 +35,11 @@ public class DepensesBean implements Serializable
         this.description = description;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

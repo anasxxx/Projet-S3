@@ -1,13 +1,13 @@
 package Bean;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class ReclamationBean implements Serializable {
     int id;
     int id_user;
     String description;
-    LocalDate date;
+    Date date;
     String status;
 
     public int getId() {
@@ -34,11 +34,11 @@ public class ReclamationBean implements Serializable {
         this.description = description;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

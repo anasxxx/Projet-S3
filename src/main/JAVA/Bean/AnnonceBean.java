@@ -1,14 +1,14 @@
 package Bean;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class AnnonceBean implements Serializable
 {
     int id;
     int id_user;
     String statut;
-    LocalDate date;
+    Date date;
     String caption;
 
     public String getCaption() {
@@ -19,11 +19,11 @@ public class AnnonceBean implements Serializable
         this.caption = caption;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

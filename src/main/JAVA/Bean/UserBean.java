@@ -1,7 +1,7 @@
 package Bean;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.sql.Date;
 
 
 
@@ -10,19 +10,19 @@ public class UserBean implements Serializable
     int id;
     String nom;
     String prenom;
-    int tel;
-    char sexe;
+    Integer tel;
+    String sexe;
     String role;
     String massar;
     String password;
     String token;
-    LocalDate token_validity;
+    Date token_validity;
 
-    public LocalDate getToken_validity() {
+    public Date getToken_validity() {
         return token_validity;
     }
 
-    public void setToken_validity(LocalDate token_validity) {
+    public void setToken_validity(Date token_validity) {
         this.token_validity = token_validity;
     }
 
@@ -58,19 +58,19 @@ public class UserBean implements Serializable
         this.role = role;
     }
 
-    public char getSexe() {
+    public String getSexe() {
         return sexe;
     }
 
-    public void setSexe(char sexe) {
+    public void setSexe(String sexe) {
         this.sexe = sexe;
     }
 
-    public int getTel() {
+    public Integer getTel() {
         return tel;
     }
 
-    public void setTel(int tel) {
+    public void setTel(Integer tel) {
         this.tel = tel;
     }
 

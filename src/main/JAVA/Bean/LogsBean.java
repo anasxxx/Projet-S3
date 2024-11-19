@@ -1,12 +1,12 @@
 package Bean;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class LogsBean implements Serializable {
     int id_user;
-    LocalDate login;
-    LocalDate logout;
+    Date login;
+    Date logout;
 
     public int getId_user() {
         return id_user;
@@ -16,19 +16,19 @@ public class LogsBean implements Serializable {
         this.id_user = id_user;
     }
 
-    public LocalDate getLogin() {
+    public Date getLogin() {
         return login;
     }
 
-    public void setLogin(LocalDate login) {
+    public void setLogin(Date login) {
         this.login = login;
     }
 
-    public LocalDate getLogout() {
+    public Date getLogout() {
         return logout;
     }
 
-    public void setLogout(LocalDate logout) {
+    public void setLogout(Date logout) {
         this.logout = logout;
     }
 }

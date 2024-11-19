@@ -1,3 +1,9 @@
+:root
+{
+    --primary-red: #FF3A3A;
+    --light-red: #FFA5A5;
+    --dark-red: #B22222;
+}
 table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -42,4 +48,39 @@ table th {
 /* Additional styling for buttons if needed */
 .actions button {
     margin-left: 5px;
+}
+.nav {
+    height: 50px;
+    width: 100%;
+    background: linear-gradient(45deg,var(--primary-red),black);
+    position: relative;
+}
+
+.nav > .nav-btn {
+    display: none;
+}
+
+.nav > .nav-links {
+    display: inline;
+    float: right;
+    font-size: 18px;
+}
+
+.nav > .nav-links > a {
+    display: inline-block;
+    padding: 13px 10px 10px 10px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #efefef;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.nav > .nav-links > a:hover {
+    border-radius: 15px;
+    background-color: var(--primary-red);
+
+}
+
+.nav > #nav-check {
+    display: none;
 }
