@@ -18,27 +18,31 @@
 <body>
 <div class="nav d-flex justify-content-around">
     <div class="nav-links">
-        <a href="#">Link 1</a>
+        <a href="${pageContext.request.contextPath}/Servlet">Se connecter</a>
         <a href="#">Link 2</a>
         <a href="#">Link 3</a>
         <a href="#">Link 4</a>
         <a href="#">Link 5</a>
     </div>
 </div>
-<div class="d-flex justify-content-between">
-    <div class="sidebar vh-100" style="width: 20%">
+<div class="d-flex justify-content-between" style="margin-top: 50px;">
+    <div class="sidebar vh-100" style="width: 20vw;overflow-y: scroll;position: fixed;padding: 15vh 10px 0 10px">
+        <a class="nav-btn" style="color: black">Profile</a><br><br>
+        <a class="nav-btn" style="color: black">Annonces</a><br><br>
+        <a class="nav-btn" style="color: black">Demandes de financement</a><br><br>
+        <a class="nav-btn" style="color: black">Réclamations</a><br><br>
+        <a class="nav-btn" style="color: black">Clubs</a><br><br>
+        <a class="nav-btn" style="color: black">Dépenses</a><br><br>
+    </div>
+    <div class="vh-100" style="width: 60vw;margin-left: 20vw;margin-top: 10vh">
         <c:forEach var="i" begin="0" end="100">
-            <a >user : ${i}</a><br>
+            <a class="">user : ${i}</a><br>
         </c:forEach>
     </div>
-    <div class="vh-100" style="width: 60%"></div>
-    <div class="sidebar vh-100" style="width: 20%">
+    <div class="sidebar vh-100" style="width: 20vw;overflow-y: scroll;position: fixed;margin-left: 80vw">
         <c:forEach var="i" begin="0" end="100">
-            <div class="fs-1">user : ${i}</div><br>
+            <div class="fs-3">user : ${i}</div><br>
         </c:forEach>
     </div>
-</div>
-
-
 </div>
 </body>

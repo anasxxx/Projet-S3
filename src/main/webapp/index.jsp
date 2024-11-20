@@ -12,9 +12,6 @@
 <html>
 <jsp:include page="header.jsp"/>
 <body>
-<form action="${pageContext.request.contextPath}/Servlet">
-    <button type="submit">se connecter</button>
-</form>
 </div>
 </body>
 </html>

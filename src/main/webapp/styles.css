@@ -53,7 +53,9 @@ table th {
     height: 50px;
     width: 100%;
     background: linear-gradient(45deg,var(--primary-red),black);
-    position: relative;
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
 .nav > .nav-btn {
@@ -65,18 +67,37 @@ table th {
     float: right;
     font-size: 18px;
 }
-
-.nav > .nav-links > a {
+.nav-btn
+{
     display: inline-block;
-    padding: 13px 10px 10px 10px;
-    border-radius: 15px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #efefef;
+    width: 100%;
+    transition: background-color 0.3s ease-in-out;
+}
+.nav-btn:hover
+{
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #646a6c;
+
+}
+.nav > .nav-links > a
+{
+    display: inline-block;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
     text-decoration: none;
     color: #efefef;
     transition: background-color 0.3s ease-in-out;
 }
 
-.nav > .nav-links > a:hover {
-    border-radius: 15px;
+.nav > .nav-links > a:hover
+{
+    cursor: pointer;
+    border-radius: 5px;
     background-color: var(--primary-red);
 
 }

@@ -10,25 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68a7f483-d36e-4290-a24d-0854b9bb7dab" name="Changes" comment="Dao &#10;DB creation&#10;DB connection&#10;Bean creation">
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/AnnonceBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/AnnonceBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/ClubBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/ClubBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/DepensesBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/DepensesBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/FinancementBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/FinancementBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/LogsBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/LogsBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/ReclamationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/ReclamationBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/UserBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/JAVA/DAO/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/CRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/DAO/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/ConnectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/DAO/JDBCConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/JDBCConnectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/Servlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/Servlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/DAO.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DAO.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/meta.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/meta.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,12 +71,13 @@
     &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.31.executor&quot;: &quot;Run&quot;,
     &quot;Tomcat Server.Tomcat 10.1.311.executor&quot;: &quot;Run&quot;,
     &quot;Tomcat Server.meta.jsp.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/pc/Desktop/Projet S3/src/main/JAVA&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/Desktop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/Desktop/New folder (2)&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -117,7 +104,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 10.1.311" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.31" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 10.1.31" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.31" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -272,7 +260,8 @@
       <workItem from="1731857953785" duration="9128000" />
       <workItem from="1731881312614" duration="2420000" />
       <workItem from="1731887110963" duration="1475000" />
-      <workItem from="1732008951297" duration="3218000" />
+      <workItem from="1732008951297" duration="12639000" />
+      <workItem from="1732098869914" duration="3494000" />
     </task>
     <task id="LOCAL-00001" summary="Dao &#10;DB creation&#10;DB connection&#10;Bean creation">
       <option name="closed" value="true" />
