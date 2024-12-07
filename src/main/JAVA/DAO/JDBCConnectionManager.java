@@ -38,12 +38,6 @@ public class JDBCConnectionManager implements ConnectionManager
         }
         catch (Exception e)
         {
-            System.out.println(JDBCConnectionManager.class.getClassLoader().getResource(PROPERTIES_FILE));
-            System.out.println("driver: " + driver);
-            System.out.println("url: " + url);
-            System.out.println("user: " + user);
-            System.out.println("pass: " + pass);
-            System.out.println("Exception: " + e);
             throw new ExceptionInInitializerError(e);
         }
     }
@@ -56,12 +50,6 @@ public class JDBCConnectionManager implements ConnectionManager
         }
         catch (Exception e)
         {
-            System.out.println(JDBCConnectionManager.class.getClassLoader().getResource("PROPERTIES_FILE"));
-            System.out.println("driver: " + driver);
-            System.out.println("url: " + url);
-            System.out.println("user: " + user);
-            System.out.println("pass: " + pass);
-            System.out.println("Exception: " + e);
             throw new ExceptionInInitializerError(e);
         }
     }
