@@ -1,21 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: pc
-  Date: 11/21/2024
-  Time: 5:56 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!doctype html>
-<!--
-* Bootstrap Simple Admin Template
-* Version: 2.1
-* Author: Alexis Luna
-* Website: https://github.com/alexis-luna/bootstrap-simple-admin-template
--->
-<html lang="en">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,8 +46,8 @@
             }
         }
 
-        /* Welcome Container */
-        .welcome-container {
+        /* Login Container */
+        .login-container {
             text-align: center;
             background-color: rgba(0, 0, 0, 0.85);
             color: white;
@@ -70,6 +56,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             animation: fadeIn 0.5s ease-out;
             max-width: 400px;
+            width: 100%;
         }
 
         @keyframes fadeIn {
@@ -83,21 +70,30 @@
             }
         }
 
-        .welcome-title {
-            font-size: 2.8rem;
+        .login-title {
+            font-size: 2.4rem;
             margin-bottom: 20px;
             font-weight: 600;
             letter-spacing: 1px;
         }
 
-        .welcome-subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 35px;
-            line-height: 1.6;
-            font-weight: 300;
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
-        .welcome-button {
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-color: #1e90ff;
+            box-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
+        }
+
+        .login-button {
             display: inline-block;
             padding: 12px 35px;
             color: white;
@@ -108,29 +104,40 @@
             border-radius: 50px;
             box-shadow: 0 5px 15px rgba(30, 144, 255, 0.4);
             transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            border: none;
         }
 
-        .welcome-button:hover {
+        .login-button:hover {
             background-color: #0056b3;
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 8px 25px rgba(30, 144, 255, 0.6);
         }
 
+        .forgot-password, .no-account {
+            color: #bbb;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password:hover, .no-account:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
-            .welcome-container {
+            .login-container {
                 padding: 40px 20px;
             }
 
-            .welcome-title {
+            .login-title {
                 font-size: 2rem;
             }
 
-            .welcome-subtitle {
-                font-size: 0.95rem;
-            }
-
-            .welcome-button {
+            .login-button {
                 font-size: 1rem;
                 padding: 10px 25px;
             }
@@ -138,11 +145,30 @@
     </style>
 </head>
 <body>
-<div class="welcome-container">
-    <h1 class="welcome-title">Welcome to ParaEnsias</h1>
-    <p class="welcome-subtitle">
-        Streamline your club management and events connecting ENSIAS clubs and members smarter with ParaEnsias.    </p>
-    <a href="${pageContext.request.contextPath}/LoginPageServlet" class="welcome-button">Get Started</a>
+<div>
+    <c:if test="${not requestScope.first_login}">
+        <script>
+            window.onload=function ()
+            {
+                const errorMessage = "${requestScope.alert}";
+                alertDiv=document.getElementById("alert");
+                alertDiv.innerText = errorMessage;
+                alertDiv.style.color = "red";
+            }
+        </script>
+    </c:if>
+</div>
+<div class="login-container">
+    <h1 class="login-title">Login to ParaEnsias</h1>
+    <form action="${pageContext.request.contextPath}/LoginServlet" method="POST">
+        <input name="massar" type="text" class="form-control" placeholder="Massar" required>
+        <input name="password" type="password" class="form-control" placeholder="Password" required>
+        <div id="alert" style="margin-top: 0"></div>
+        <button type="submit" class="login-button">Log In</button>
+    </form>
+    <h>Forgot your password? </h><a href="resetpass.jsp" class="forgot-password">Reset</a>
+    <br>
+    <h>Don't have an account yet? </h><a href="signup.jsp" class="no-account">Sign up</a>
 </div>
 </body>
 </html>

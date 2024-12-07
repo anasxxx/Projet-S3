@@ -8,7 +8,7 @@ public class ReclamationBean implements Serializable {
     int id_user;
     String description;
     Date date;
-    String statut;
+    String status;
 
     public int getId() {
         return id;
@@ -42,11 +42,11 @@ public class ReclamationBean implements Serializable {
         this.date = date;
     }
 
-    public String getStatut() {
-        return statut;
+    public String getStatus() {
+        return status;
     }
 
-    public void setStatut(String statut) {
-        this.statut = statut;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

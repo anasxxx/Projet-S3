@@ -9,14 +9,14 @@ public class ClubBean implements Serializable
     int id_president;
     String name;
     String description;
-    String acronyme;
+    String acronym;
 
-    public String getAcronyme() {
-        return acronyme;
+    public String getAcronym() {
+        return acronym;
     }
 
-    public void setAcronyme(String acronyme) {
-        this.acronyme = acronyme;
+    public void setAcronym(String acronym) {
+        this.acronym = acronym;
     }
 
     public String getDescription() {

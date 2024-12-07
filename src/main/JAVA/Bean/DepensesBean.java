@@ -9,7 +9,7 @@ public class DepensesBean implements Serializable
     int id_user;
     String description;
     Date date;
-    float montant;
+    float amount;
 
     public int getId() {
         return id;
@@ -43,11 +43,11 @@ public class DepensesBean implements Serializable
         this.date = date;
     }
 
-    public float getMontant() {
-        return montant;
+    public float getAmount() {
+        return amount;
     }
 
-    public void setMontant(float montant) {
-        this.montant = montant;
+    public void setAmount(float Amount) {
+        this.amount = Amount;
     }
 }
