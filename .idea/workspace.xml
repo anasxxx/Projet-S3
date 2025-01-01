@@ -10,42 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68a7f483-d36e-4290-a24d-0854b9bb7dab" name="Changes" comment="Dao &#10;DB creation&#10;DB connection&#10;Bean creation">
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/EmailSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/Security.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/GetusersServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/HomeServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/LoginPageServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/LoginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/LogoutServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/ResetpassServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/ResetpasscheckServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/ResetpassemailServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/SavepassServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/SignupServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/emailsent.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/newpass.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resetpass.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/signup.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/tokenexpired.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/users.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/wrongtoken.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/GetclubsServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/ClubBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/ClubBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/DepensesBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/DepensesBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/ReclamationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/ReclamationBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/UserBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/UserBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/JAVA/DAO/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/CRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/Servlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/DAO.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DAO.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/SignupServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/SignupServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/meta.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/users.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -307,6 +279,15 @@
       <workItem from="1733412435470" duration="6164000" />
       <workItem from="1733442930122" duration="9701000" />
       <workItem from="1733472408283" duration="13432000" />
+      <workItem from="1733563754104" duration="1534000" />
+      <workItem from="1733693858216" duration="2715000" />
+      <workItem from="1733742483110" duration="304000" />
+      <workItem from="1733743079434" duration="592000" />
+      <workItem from="1733821949265" duration="53000" />
+      <workItem from="1734007300094" duration="8332000" />
+      <workItem from="1734551153375" duration="2151000" />
+      <workItem from="1735306258582" duration="1236000" />
+      <workItem from="1735511409906" duration="1039000" />
     </task>
     <task id="LOCAL-00001" summary="Dao &#10;DB creation&#10;DB connection&#10;Bean creation">
       <option name="closed" value="true" />

@@ -18,21 +18,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         :root {
-            --navbar-color: #222831;
-            --sidebar-color: #393E46;
-            --text-color: #eeeeee;
-            --card-bg-color: #00ADB5;
+            --background-color: #E7ECEF;
+            --navbar-color: #274C77;
+            --sidebar-color: #274C77;
+            --blue-color: #6096BA;
+            --light-color: #A3CEF1;
         }
 
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(45deg, #393E46, #222831);
-            color: var(--text-color);
+            background: linear-gradient(-90deg,var(--light-color),var(--background-color));
         }
 
         .navbar {
+            margin: 25px 0;
             background-color: var(--navbar-color);
-            color: var(--text-color);
         }
 
         .sidebar {
@@ -40,13 +40,14 @@
         }
 
         .sidebar a {
-            color: var(--text-color);
+
         }
 
         .card {
-            background-color: var(--card-bg-color);
+            box-shadow: black 0px 0px 5px;
+            margin-top: 15px;
+            background-color: var(--light-color);
             border: none;
-            color: var(--text-color);
             transition: transform 0.3s;
         }
         a{
@@ -56,9 +57,11 @@
         .card:hover {
             transform: scale(1.05);
         }
-
+        .card-title{
+            color: var(--navbar-color);
+        }
         .card-text {
-            color: rgba(238, 238, 238, 0.7);
+            color: black;
         }
 
         /* Sidebar styles */
@@ -73,7 +76,7 @@
             flex-direction: column;
             align-items: center;
             padding: 10px 0;
-            background-color: #000019; /* Match the navbar color */
+            background-color: var(--sidebar-color); /* Match the navbar color */
             z-index: 1;
         }
 
@@ -180,12 +183,14 @@
             top: 0;
             margin-top: 20px;
             z-index: 1000;
-            background-color: #000019;
+            background-color: var(--navbar-color);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 15px ;
         }
 
         .nav-item {
+            flex-direction: column;
+            border-radius: 15px;
             justify-items: center;
             justify-content: center;
             font-size: 16px;
@@ -195,10 +200,6 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .nav-item:hover{
-            background-color: rgba(0, 0, 19, 0.5); /* Slight background change on hover */
-            transform: scale(1.05); /* Slightly enlarge the link on hover */
-        }
 
         .nav-link {
             font-size: 16px;
@@ -209,7 +210,7 @@
         }
 
         .nav-link:hover {
-            background-color: rgba(0, 0, 19, 0.5); /* Slight background change on hover */
+            /* Slight background change on hover */
             transform: scale(1.05); /* Slightly enlarge the link on hover */
         }
 
@@ -431,13 +432,13 @@
         <span>ParaEnsias</span>
     </div>
     <a href="${pageContext.request.contextPath}/HomeServlet">
-        <i class="bi bi-person"></i>
+        <i class="bi bi-house">Home</i>
     </a>
     <a href="${pageContext.request.contextPath}/ProfileSevlet">
-        <i class="bi bi-calendar"></i>
+        <i class="bi bi-person">Profile</i>
     </a>
     <a href="${pageContext.request.contextPath}/LogoutServlet">
-        <i class="bi bi-clock"></i>
+        <i class="bi bi-box-arrow-right">Logout</i>
     </a>
 </div>
 
@@ -454,8 +455,8 @@
                             <a href="${pageContext.request.contextPath}/GetusersServlet">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title text-white">Users</h5>
-                                        <p class="card-text text-white-50">
+                                        <h5 class="card-title ">Users</h5>
+                                        <p class="card-text ">
                                             Manage and oversee registered users in the platform. Add, edit, or remove user accounts as necessary.
                                         </p>
                                     </div>
@@ -468,8 +469,8 @@
                             <a href="${pageContext.request.contextPath}/login.jsp">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title text-white">Complaints</h5>
-                                        <p class="card-text text-white-50">
+                                        <h5 class="card-title ">Complaints</h5>
+                                        <p class="card-text ">
                                             View and handle complaints submitted by users. Respond and resolve issues promptly.
                                         </p>
                                     </div>
@@ -482,8 +483,8 @@
                             <a href="#">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title text-white">Announcements</h5>
-                                        <p class="card-text text-white-50">
+                                        <h5 class="card-title ">Announcements</h5>
+                                        <p class="card-text ">
                                             Create and manage announcements to keep everyone informed about the latest updates.
                                         </p>
 
@@ -499,8 +500,8 @@
                             <a href="#">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title text-white">Announcements to Approve</h5>
-                                        <p class="card-text text-white-50">
+                                        <h5 class="card-title ">Announcements to Approve</h5>
+                                        <p class="card-text ">
                                             Review and approve announcements submitted by club members or administrators.
                                         </p>
                                     </div>
@@ -513,8 +514,8 @@
                             <a href="#">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title text-white">Financing Requests</h5>
-                                        <p class="card-text text-white-50">
+                                        <h5 class="card-title ">Financing Requests</h5>
+                                        <p class="card-text ">
                                             Oversee financing requests submitted by clubs and approve or reject as needed.
                                         </p>
                                     </div>
@@ -527,8 +528,8 @@
                             <a href="#">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title text-white">Finances</h5>
-                                        <p class="card-text text-white-50">
+                                        <h5 class="card-title ">Finances</h5>
+                                        <p class="card-text ">
                                             Track and manage financial records, including club budgets and expenses.
                                         </p>
                                     </div>
@@ -549,8 +550,8 @@
                             <a href="#">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title text-white">Complaints</h5>
-                                        <p class="card-text text-white-50">
+                                        <h5 class="card-title ">Complaints</h5>
+                                        <p class="card-text ">
                                             Submit your complaints and track their status. Ensure your concerns are addressed promptly.
                                         </p>
                                     </div>
@@ -563,8 +564,8 @@
                             <a href="#">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title text-white">Announcements</h5>
-                                        <p class="card-text text-white-50">
+                                        <h5 class="card-title ">Announcements</h5>
+                                        <p class="card-text ">
                                             Create and manage announcements to keep everyone informed about the latest updates.
                                         </p>
                                     </div>
@@ -577,8 +578,8 @@
                             <a href="#">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title text-white">My Complaints</h5>
-                                        <p class="card-text text-white-50">
+                                        <h5 class="card-title ">My Complaints</h5>
+                                        <p class="card-text ">
                                             Review and track the status of complaints you have submitted. Stay updated on their resolution.
                                         </p>
                                     </div>
@@ -593,8 +594,8 @@
                             <a href="#">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title text-white">Request Financing</h5>
-                                        <p class="card-text text-white-50">
+                                        <h5 class="card-title ">Request Financing</h5>
+                                        <p class="card-text ">
                                             Submit a financing request for your club and track its approval status.
                                         </p>
                                     </div>
@@ -607,8 +608,8 @@
                             <a href="#">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title text-white">My Financing Requests</h5>
-                                        <p class="card-text text-white-50">
+                                        <h5 class="card-title ">My Financing Requests</h5>
+                                        <p class="card-text ">
                                             Track and manage the financing requests you have submitted for your club.
                                         </p>
                                     </div>
@@ -629,8 +630,8 @@
                             <a href="#">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title text-white">Announcements</h5>
-                                        <p class="card-text text-white-50">
+                                        <h5 class="card-title ">Announcements</h5>
+                                        <p class="card-text ">
                                             Create announcements to keep everyone informed about the latest updates and news.
                                         </p>
                                     </div>
@@ -645,7 +646,7 @@
 
 
     <footer class="mt-5">
-        <p class="text-center text-white-50">
+        <p class="text-center text-black-50">
             © 2024 ParaEnsias. All rights reserved.
         </p>
     </footer>

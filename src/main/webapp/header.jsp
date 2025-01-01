@@ -10,12 +10,45 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
+        :root {
+            --background-color: #E7ECEF;
+            --navbar-color: #274C77;
+            --sidebar-color: #274C77;
+            --blue-color: #6096BA;
+            --light-color: #A3CEF1;
+        }
+
         body {
-            display: flex;
-            min-height: 100vh;
-            overflow-x: hidden;
-            margin: 0;
-            background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient background */
+            font-family: Arial, sans-serif;
+            background: linear-gradient(-90deg, var(--light-color),var(--background-color));            color: var(--text-color);
+        }
+
+        .navbar {
+            margin-top: 25px;
+            background-color: var(--navbar-color);
+        }
+
+        .sidebar {
+            background-color: var(--sidebar-color);
+        }
+
+        .sidebar a {
+        }
+
+        .card {
+            border: none;
+            transition: transform 0.3s;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-text {
+            color: rgba(238, 238, 238, 0.7);
         }
 
         /* Sidebar styles */
@@ -30,7 +63,7 @@
             flex-direction: column;
             align-items: center;
             padding: 10px 0;
-            background-color: #000019; /* Match the navbar color */
+            background-color: var(--sidebar-color); /* Match the navbar color */
             z-index: 1;
         }
 
@@ -137,12 +170,17 @@
             top: 0;
             margin-top: 20px;
             z-index: 1000;
-            background-color: #000019;
+            background-color: var(--navbar-color);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 15px ;
+            max-width: 100vw;
+            margin-left: 70px;
+            margin-right: 70px;
         }
 
         .nav-item {
+            flex-direction: column;
+            border-radius: 15px;
             justify-items: center;
             justify-content: center;
             font-size: 16px;
@@ -152,10 +190,6 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .nav-item:hover{
-            background-color: rgba(0, 0, 19, 0.5); /* Slight background change on hover */
-            transform: scale(1.05); /* Slightly enlarge the link on hover */
-        }
 
         .nav-link {
             font-size: 16px;
@@ -166,7 +200,7 @@
         }
 
         .nav-link:hover {
-            background-color: rgba(0, 0, 19, 0.5); /* Slight background change on hover */
+            background-color: var(--text-color); /* Slight background change on hover */
             transform: scale(1.05); /* Slightly enlarge the link on hover */
         }
 
@@ -195,28 +229,23 @@
             width: 60vw;
             background-color: rgba(0, 0, 0, 0.1); /* Light background */
             border-radius: 15px; /* Increased roundness for a more modern look */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow */
-            margin-top: 5%;
             color: white;
             border: transparent;
             overflow: hidden;
             transition: all 0.3s ease;
             position: relative;
-        }
-
-
-        .table {
             border-collapse: collapse;
             margin: 25px 0;
             font-size: 0.9em;
             font-family: sans-serif;
+            max-width: 100vw;
             min-width: 400px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         }
 
         .table thead tr {
             background-color: #009879;
-            color: #ffffff;
+            color: var(--light-color);
             text-align: left;
         }
         .table th,
@@ -295,23 +324,6 @@
             }
         }
 
-
-
-
-        .card {
-            background-color: rgba(255, 255, 255, 0.1); /* Transparent cards */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: scale(1.02);
-        }
-
-        .card-header {
-            background-color: rgba(0, 0, 0, 0.3); /* Dark card header */
-            color: white;
-        }
 
         /* Footer or additional content */
         footer {
@@ -393,6 +405,7 @@
                 font-size: 14px; /* Adjust font size for smaller screens */
             }
         }
+
     </style>
 </head>
 <body>
@@ -404,13 +417,13 @@
         <span>ParaEnsias</span>
     </div>
     <a href="${pageContext.request.contextPath}/HomeServlet">
-        <i class="bi bi-house"></i>
+        <i class="bi bi-house">Home</i>
     </a>
     <a href="${pageContext.request.contextPath}/ProfileSevlet">
-        <i class="bi bi-calendar"></i>
+        <i class="bi bi-person">Profile</i>
     </a>
     <a href="${pageContext.request.contextPath}/LogoutServlet">
-        <i class="bi bi-clock"></i>
+        <i class="bi bi-box-arrow-right">Logout</i>
     </a>
 </div>
 
@@ -418,83 +431,59 @@
 <div id="mainContent" class="content">
     <!-- Navbar -->
     <nav class="navbar">
-        <c:choose>
-            <c:when test="${sessionScope.role eq 'P'}">
-                <div class="container-fluid d-flex justify-content-end">
-                    <ul class="navbar-nav d-flex flex-row">
-                        <li class="nav-item">
-                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/GetusersServlet">Users</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Complaints</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Announcements</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Announcements to approve</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Financing requests</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Finances</a>
-                        </li>
+        <div class="container-fluid d-flex justify-content-end">
+            <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item">
+                    <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/GetusersServlet">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Complaints</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Announcements</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Announcements to approve</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Financing requests</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Finances</a>
+                </li>
 
-                    </ul>
-                </div>
-            </c:when>
-            <c:when test="${sessionScope.role eq 'Chef'}">
-                <div class="container-fluid d-flex justify-content-end">
-                    <ul class="navbar-nav d-flex flex-row">
-                        <li class="nav-item">
-                            <a class="nav-link text-white px-3 py-2 rounded-3" href="">Appointments</a>
-                        </li>
-                    </ul>
-                </div>
-            </c:when>
-            <c:when test="${sessionScope.role eq 'Étudiant'}">
-                <div class="container-fluid d-flex justify-content-end">
-                    <ul class="navbar-nav d-flex flex-row">
-                        <li class="nav-item">
-                            <a class="nav-link text-white px-3 py-2 rounded-3" href="">Announcements</a>
-                        </li>
-                    </ul>
-                </div>
-            </c:when>
-        </c:choose>
+            </ul>
+        </div>
     </nav>
-    <footer class="mt-5" style="margin-top: 0" >
-        <p class="text-center text-white-50">
-            © 2024 ParaEnsias. All rights reserved.
-        </p>
-    </footer>
+    <div>
+
+    </div>
 
 
 
-<script>
-    document.getElementById('applyFilters').addEventListener('click', function () {
-        const keyword = document.getElementById('search').value.trim();
-        const filterType = document.getElementById('filterType').value;
+    <script>
+        document.getElementById('applyFilters').addEventListener('click', function () {
+            const keyword = document.getElementById('search').value.trim();
+            const filterType = document.getElementById('filterType').value;
 
-        // Example filter logic
-        console.log(`Applying filters: Keyword - ${keyword}, Filter Type - ${filterType}`);
-        // Implement actual filtering logic here
-    });
-</script>
+            // Example filter logic
+            console.log(`Applying filters: Keyword - ${keyword}, Filter Type - ${filterType}`);
+            // Implement actual filtering logic here
+        });
+    </script>
 
-<script>
-    document.getElementById('toggleSidebar').addEventListener('click', function () {
-        const sidebar = document.getElementById('sidebar');
-        const mainContent = document.getElementById('mainContent');
-        sidebar.classList.toggle('collapsed');
-        mainContent.classList.toggle('shifted');
-    });
+    <script>
+        document.getElementById('toggleSidebar').addEventListener('click', function () {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('shifted');
+        });
 
-</script>
+    </script>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

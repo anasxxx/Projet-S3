@@ -43,4 +43,9 @@
     </tbody>
 </table>
 </div>
+<footer class="mt-5" style="margin-top: 0" >
+    <p class="text-center text-black-50">
+        © 2024 ParaEnsias. All rights reserved.
+    </p>
+</footer>
 </body>

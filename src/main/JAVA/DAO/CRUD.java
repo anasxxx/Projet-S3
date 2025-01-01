@@ -131,8 +131,8 @@ public class CRUD
             ResultSet rs = stmt1.executeQuery();
             if (rs.next())
             {
-                query = "INSERT INTO user (first_name, last_name, phone, sexe, role, massar, password) " +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?)";
+                query = "INSERT INTO user (first_name, last_name, phone, sexe, massar, password) " +
+                        "VALUES (?, ?, ?, ?, ?, ?)";
 
                 try (PreparedStatement stmt2 = connection.prepareStatement(query))
                 {
@@ -140,9 +140,8 @@ public class CRUD
                     stmt2.setString(2, user.getLast_name());
                     stmt2.setString(3, user.getPhone());
                     stmt2.setString(4, user.getSexe());
-                    stmt2.setString(5, user.getRole());
-                    stmt2.setString(6, user.getMassar());
-                    stmt2.setString(7, user.getPassword());
+                    stmt2.setString(5, user.getMassar());
+                    stmt2.setString(6, user.getPassword());
                     stmt2.executeUpdate();
                 }
                 catch (SQLException e)
@@ -504,7 +503,31 @@ public class CRUD
 
     
     public static List<ClubBean> getAllClubs() {
-        return List.of();
+        JDBCConnectionManager DAO = new JDBCConnectionManager();
+        Connection connection = DAO.getConnection();
+        PreparedStatement stmt1 = null;
+        PreparedStatement stmt2 = null;
+        String select_user = "SELECT (first_name,last_name) FROM user WHERE user_id=?";
+        String query = "SELECT * FROM club";
+
+        List<ClubBean> clubs;
+        try {
+            stmt1 = connection.prepareStatement(query);
+            stmt1.executeQuery();
+            ResultSet rs = stmt1.getResultSet();
+            clubs = new ArrayList<ClubBean>();
+            while (rs.next()) {
+                ClubBean club = new ClubBean();
+                club.setId(rs.getInt("id"));
+                club.setName(rs.getString("name"));
+                club.setDescription(rs.getString("description"));
+                club.setAcronym(rs.getString("acronym"));
+                clubs.add(club);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return clubs;
     }
 
     

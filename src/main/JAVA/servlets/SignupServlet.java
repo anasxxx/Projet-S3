@@ -20,9 +20,10 @@ public class SignupServlet extends HttpServlet
     {
         String first_name = request.getParameter("first_name");
         String last_name = request.getParameter("last_name");
-        String email = request.getParameter("email");
+        String massar = request.getParameter("massar");
         String password = request.getParameter("password");
         String phone = request.getParameter("phone");
+        String sexe = request.getParameter("sexe");
         String password_hash="";
 
         try
@@ -38,8 +39,9 @@ public class SignupServlet extends HttpServlet
 
         user.setFirst_name(first_name);
         user.setLast_name(last_name);
-        user.setEmail(email);
+        user.setMassar(massar);
         user.setPhone(phone);
+        user.setSexe(sexe);
         user.setPassword(password_hash);
 
         try
