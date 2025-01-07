@@ -18,16 +18,25 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         :root {
-            --background-color: #E7ECEF;
-            --navbar-color: #274C77;
-            --sidebar-color: #274C77;
-            --blue-color: #6096BA;
+            --background-color: #092e86;
+            --card-color: #000000;
+            --navbar-color: #092e86;
+            --sidebar-color: #092e86    ;
+            --card-title-color: #000000;
             --light-color: #A3CEF1;
         }
 
         body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-family: Arial, sans-serif;
-            background: linear-gradient(-90deg,var(--light-color),var(--background-color));
+            background: url("img/bg.jpg");
+            object-fit: fill;
+            background-size: cover;
         }
 
         .navbar {
@@ -42,13 +51,18 @@
         .sidebar a {
 
         }
+        .container{
+            border-radius: 15px;
+            padding: 50px;
 
+        }
         .card {
             box-shadow: black 0px 0px 5px;
-            margin-top: 15px;
-            background-color: var(--light-color);
+            background: rgba(240,240,240,0.5);
+            backdrop-filter: blur(10px);
             border: none;
             transition: transform 0.3s;
+            border-radius: 0;
         }
         a{
             text-decoration: none;
@@ -58,14 +72,16 @@
             transform: scale(1.05);
         }
         .card-title{
-            color: var(--navbar-color);
+            font-weight: bold;
+            color: var(--card-title-color);
         }
         .card-text {
-            color: black;
+            color: var(--card-color);
         }
 
         /* Sidebar styles */
         .sidebar {
+            left: 0;
             color: white;
             height: 100vh;
             width: 10%;
@@ -421,6 +437,21 @@
             }
         }
 
+        .image-container {
+            margin-top: 20px;
+            width: 100%;
+            height: auto;
+            position: fixed;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-container img {
+            height: auto;
+        }
+
     </style>
 </head>
 <body>
@@ -434,7 +465,7 @@
     <a href="${pageContext.request.contextPath}/HomeServlet">
         <i class="bi bi-house">Home</i>
     </a>
-    <a href="${pageContext.request.contextPath}/ProfileSevlet">
+    <a href="${pageContext.request.contextPath}/ProfileServlet">
         <i class="bi bi-person">Profile</i>
     </a>
     <a href="${pageContext.request.contextPath}/LogoutServlet">
@@ -444,6 +475,9 @@
 
 <!-- Main content -->
 <div id="mainContent" class="content shifted">
+    <div class="image-container">
+        <img src="img/paraensias-logo.png">
+    </div>
     <!-- Navbar -->
     <c:choose>
         <c:when test="${sessionScope.role eq 'P'}">
@@ -646,7 +680,7 @@
 
 
     <footer class="mt-5">
-        <p class="text-center text-black-50">
+        <p class="text-center text-white-50">
             © 2024 ParaEnsias. All rights reserved.
         </p>
     </footer>

@@ -11,24 +11,28 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         :root {
-            --background-color: #E7ECEF;
-            --navbar-color: #274C77;
-            --sidebar-color: #274C77;
+            --background-color: #092e86;
+            --navbar-color: #092e86;
+            --sidebar-color: #092e86    ;
             --blue-color: #6096BA;
             --light-color: #A3CEF1;
         }
 
         body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-family: Arial, sans-serif;
-            background: linear-gradient(-90deg, var(--light-color),var(--background-color));            color: var(--text-color);
-        }
-
-        .navbar {
-            margin-top: 25px;
-            background-color: var(--navbar-color);
+            background: url("img/bg.jpg");
+            object-fit: fill;
+            background-size: cover;
         }
 
         .sidebar {
+            left: 0;
             background-color: var(--sidebar-color);
         }
 
@@ -166,10 +170,9 @@
 
         /* Navbar styles */
         .navbar {
-            position: sticky;
+            position: fixed;
             top: 0;
             margin-top: 20px;
-            z-index: 1000;
             background-color: var(--navbar-color);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 15px ;
@@ -419,7 +422,7 @@
     <a href="${pageContext.request.contextPath}/HomeServlet">
         <i class="bi bi-house">Home</i>
     </a>
-    <a href="${pageContext.request.contextPath}/ProfileSevlet">
+    <a href="${pageContext.request.contextPath}/ProfileServlet">
         <i class="bi bi-person">Profile</i>
     </a>
     <a href="${pageContext.request.contextPath}/LogoutServlet">

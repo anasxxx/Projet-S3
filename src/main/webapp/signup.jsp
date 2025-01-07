@@ -10,6 +10,13 @@
     <title>ParaEnsias</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
+        :root {
+            --background-color: #092e86;
+            --navbar-color: #092e86;
+            --sidebar-color: #092e86    ;
+            --blue-color: #6096BA;
+            --light-color: #A3CEF1;
+        }
         body {
             margin: 0;
             height: 100vh;
@@ -17,21 +24,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* Dynamic Background */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #6a11cb, #2575fc, #ff6b6b, #ffcc00);
-            background-size: 300% 300%;
-            animation: gradient 15s ease infinite;
-            z-index: -1;
+            font-family: Arial, sans-serif;
+            background: url("img/bg.jpg");
+            object-fit: fill;
+            background-size: cover;
         }
 
         @keyframes gradient {

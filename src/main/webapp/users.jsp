@@ -42,10 +42,11 @@
     </c:forEach>
     </tbody>
 </table>
-</div>
 <footer class="mt-5" style="margin-top: 0" >
-    <p class="text-center text-black-50">
+    <p class="text-center text-white-50">
         © 2024 ParaEnsias. All rights reserved.
     </p>
 </footer>
+</div>
+
 </body>
