@@ -10,7 +10,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="header.jsp"/>
 <body>
-<form action="${pageContext.request.contextPath}/AdminSignupServlet" method="post" class="row g-3" style="max-width: 75vw;margin-top: 20px">
+<form action="${pageContext.request.contextPath}/AdminSignupServlet" method="post" class="row g-3" style="max-width: calc(100% - 25vw);margin-top: 100px">
     <div class="col-md-3">
         <label for="first_name" class="form-label">First Name</label>
         <input type="text" class="form-control" id="first_name" name="first_name" required>
@@ -65,6 +65,20 @@
     </tr>
     </thead>
     <tbody>
+    <c:forEach var="user" items="${users}">
+        <tr>
+            <td>${user.id}</td>
+            <td>${user.first_name}</td>
+            <td>${user.last_name}</td>
+            <td>${user.email}</td>
+            <th>${user.massar}</th>
+            <td>${user.phone}</td>
+            <td>${user.sexe}</td>
+            <td>${user.role}</td>
+            <td>${user.created_at}</td>
+            <td>${user.updated_at}</td>
+        </tr>
+    </c:forEach>
     <c:forEach var="user" items="${users}">
         <tr>
             <td>${user.id}</td>

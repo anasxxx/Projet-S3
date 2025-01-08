@@ -28,7 +28,9 @@
             font-family: Arial, sans-serif;
             background: url("img/bg.jpg");
             object-fit: fill;
+            background-attachment: fixed;
             background-size: cover;
+            overflow: scroll;
         }
 
         .sidebar {
@@ -155,8 +157,8 @@
 
         /* Content styles */
         .content {
-            min-height: 100vh;
-            min-width: 100vw;
+            max-height: 100vh;
+            max-width: 100vw;
             width: calc(100% - 25vw);
             position: relative;
             display: flex;
@@ -170,8 +172,9 @@
 
         /* Navbar styles */
         .navbar {
-            position: relative;
-            margin-top: 20px;
+            z-index: 1000;
+            position: fixed;
+            margin-top: 0px;
             background-color: var(--navbar-color);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 15px ;
@@ -457,7 +460,6 @@
             </ul>
         </div>
     </nav>
-    <div class="content">
     <script>
         document.getElementById('applyFilters').addEventListener('click', function () {
             const keyword = document.getElementById('search').value.trim();
