@@ -491,7 +491,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title ">Users</h5>
                                         <p class="card-text ">
-                                            Manage and oversee registered users in the platform. Add, edit, or remove user accounts as necessary.
+                                            Manage and oversee registered users in the platform.
                                         </p>
                                     </div>
                                 </div>
@@ -519,7 +519,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title ">Announcements</h5>
                                         <p class="card-text ">
-                                            Create and manage announcements to keep everyone informed about the latest updates.
+                                            Consult the latest announcements and stay informed about the latest updates.
                                         </p>
 
                                     </div>

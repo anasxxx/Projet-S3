@@ -50,7 +50,7 @@
             padding: 60px 40px;
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 1.5s ease-out;
+            animation: fadeIn 0.5s ease-out;
             max-width: 400px;
             width: 100%;
         }

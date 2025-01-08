@@ -119,7 +119,77 @@ public class CRUD
         return users;
     }
 
-    
+    public static void AdminaddUser(UserBean user) throws SQLException {
+        JDBCConnectionManager DAO = new JDBCConnectionManager();
+        Connection connection = DAO.getConnection();
+        String query = "SELECT id FROM massar WHERE id=?";
+
+        try (PreparedStatement stmt1 = connection.prepareStatement(query)) {
+            stmt1.setString(1, user.getMassar());
+            ResultSet rs = stmt1.executeQuery();
+            if (!rs.next()) {
+                query = "INSERT INTO massar (id) VALUES (?)";
+                try (PreparedStatement stmt2 = connection.prepareStatement(query)) {
+                    stmt2.setString(1, user.getMassar());
+                    stmt2.executeUpdate();
+                } catch (SQLException e) {
+                    throw new RuntimeException("Error adding massar", e);
+                }
+            }
+            query = "INSERT INTO user (first_name, last_name, phone, sexe, massar, password) " +
+                    "VALUES (?, ?, ?, ?, ?, ?)";
+            user.setEmail(user.getMassar()+"@um5.ac.ma");
+            String message = "Dear " + user.getFirst_name() + " " + user.getLast_name() + ",\n" +
+                    "\n" +
+                    "We are pleased to inform you that an account has been successfully created for you on the ParaEnsias platform by an administrator.\n" +
+                    "\n" +
+                    "You can now log in to your account using the following link:\n" +
+                    "\n" +
+                    "http://localhost:8000/Projet_S3_war_exploded/LoginServlet"+
+                    "\n" +
+                    "Your Massar is: " + user.getMassar() + "\n" +
+                    "your Password is: " + user.getPassword() + "\n" +
+                    "Your initial credentials have been securely set. Please update your password upon your first login for security purposes.\n" +
+                    "\n" +
+                    "If you encounter any issues or have questions, please don't hesitate to reach out to our support team.\n" +
+                    "\n" +
+                    "Welcome to ParaEnsias! We look forward to your active participation.\n" +
+                    "\n" +
+                    "Thank you,\n" +
+                    "The ParaEnsias Team";
+
+            String subject = "ParaEnsias account creation";
+            try
+            {
+                EmailSender mail=new EmailSender();
+                EmailSender.SendMail(user.getEmail(),subject,message);
+            }
+            catch (Exception e)
+            {
+                System.out.println(e);
+                throw new RuntimeException(e);
+            }
+            try
+            {
+                user.setPassword(Security.hash(user.getPassword()));
+            }
+            catch (NoSuchAlgorithmException e)
+            {
+                throw new RuntimeException(e);
+            }
+            try (PreparedStatement stmt2 = connection.prepareStatement(query)) {
+                stmt2.setString(1, user.getFirst_name());
+                stmt2.setString(2, user.getLast_name());
+                stmt2.setString(3, user.getPhone());
+                stmt2.setString(4, user.getSexe());
+                stmt2.setString(5, user.getMassar());
+                stmt2.setString(6, user.getPassword());
+                stmt2.executeUpdate();
+            } catch (SQLException e) {
+                throw new RuntimeException("Error adding user", e);
+            }
+        }
+    }
     public static void addUser(UserBean user)
     {
         JDBCConnectionManager DAO = new JDBCConnectionManager();

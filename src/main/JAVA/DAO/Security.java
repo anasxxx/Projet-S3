@@ -40,4 +40,19 @@ public class Security
 
         return stringBuilder.toString();
     }
+    public static String RandomPassGenerator()
+    {
+        final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        final int STRING_LENGTH = 8;
+
+        SecureRandom random = new SecureRandom();
+        StringBuilder stringBuilder = new StringBuilder(STRING_LENGTH);
+
+        for (int i = 0; i < STRING_LENGTH; i++) {
+            int index = random.nextInt(CHARACTERS.length());
+            stringBuilder.append(CHARACTERS.charAt(index));
+        }
+
+        return stringBuilder.toString();
+    }
 }

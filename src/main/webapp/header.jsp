@@ -161,8 +161,8 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            align-content: space-between;
             padding: 20px;
             box-sizing: border-box;
         }
@@ -170,8 +170,7 @@
 
         /* Navbar styles */
         .navbar {
-            position: fixed;
-            top: 0;
+            position: relative;
             margin-top: 20px;
             background-color: var(--navbar-color);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -458,12 +457,7 @@
             </ul>
         </div>
     </nav>
-    <div>
-
-    </div>
-
-
-
+    <div class="content">
     <script>
         document.getElementById('applyFilters').addEventListener('click', function () {
             const keyword = document.getElementById('search').value.trim();
