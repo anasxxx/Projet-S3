@@ -71,7 +71,7 @@
             <td>${user.first_name}</td>
             <td>${user.last_name}</td>
             <td>${user.email}</td>
-            <th>${user.massar}</th>
+            <td>${user.massar}</td>
             <td>${user.phone}</td>
             <td>${user.sexe}</td>
             <td>${user.role}</td>
@@ -85,7 +85,7 @@
             <td>${user.first_name}</td>
             <td>${user.last_name}</td>
             <td>${user.email}</td>
-            <th>${user.massar}</th>
+            <td>${user.massar}</td>
             <td>${user.phone}</td>
             <td>${user.sexe}</td>
             <td>${user.role}</td>

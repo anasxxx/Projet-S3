@@ -9,10 +9,7 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import static DAO.JDBCConnectionManager.url;
 
 
 public class CRUD
@@ -61,7 +58,7 @@ public class CRUD
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
-            user.setId(rs.getInt(id));
+            user.setId(id);
             user.setLast_name(rs.getString("first_name"));
             user.setFirst_name(rs.getString("last_name"));
             user.setPhone(rs.getString("phone"));
@@ -118,7 +115,101 @@ public class CRUD
         }
         return users;
     }
+    public static List<FinancementBean> getAllFinancements() {
+    JDBCConnectionManager DAO = new JDBCConnectionManager();
+    Connection connection = DAO.getConnection();
+    PreparedStatement stmt = null;
+    String query = "SELECT * FROM financement";
+    List<FinancementBean> financements = new ArrayList<>();
 
+    try {
+        stmt = connection.prepareStatement(query);
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            FinancementBean financement = new FinancementBean();
+            financement.setId(rs.getInt("id"));
+            financement.setId_user(rs.getInt("id_user"));
+            financement.setDescription(rs.getString("description"));
+            financement.setDate(rs.getTimestamp("date"));
+            financement.setMontant(rs.getFloat("montant"));
+            financement.setStatus(rs.getString("status"));
+            financements.add(financement);
+        }
+    } catch (SQLException e) {
+        throw new RuntimeException("Error getting all financements", e);
+    }
+    return financements;
+}
+    public static List<FinancementBean> getFinancementsByUserId(int id) {
+        JDBCConnectionManager DAO = new JDBCConnectionManager();
+        Connection connection = DAO.getConnection();
+        PreparedStatement stmt = null;
+        String query = "SELECT * FROM financement WHERE id_user = ?";
+        List<FinancementBean> financements;
+        try {
+            stmt = connection.prepareStatement(query);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            financements = new ArrayList<FinancementBean>();
+            if (rs.next()) {
+                FinancementBean financement = new FinancementBean();
+                financement.setId(rs.getInt("id"));
+                financement.setId_user(id);
+                financement.setDescription(rs.getString("description"));
+                financement.setDate(rs.getTimestamp("date"));
+                financement.setMontant(rs.getFloat("montant"));
+                financement.setStatus(rs.getString("status"));
+                financements.add(financement);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error getting financement by id " + id, e);
+        }
+        return financements;
+    }
+    public static FinancementBean getFinancementById(int id) {
+        JDBCConnectionManager DAO = new JDBCConnectionManager();
+        Connection connection = DAO.getConnection();
+        PreparedStatement stmt = null;
+        String query = "SELECT * FROM financement WHERE id = ?";
+        FinancementBean financement = new FinancementBean();
+        try {
+            stmt = connection.prepareStatement(query);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                financement.setId(id);
+                financement.setId_user(rs.getInt("id_user"));
+                financement.setDescription(rs.getString("description"));
+                financement.setDate(rs.getTimestamp("date"));
+                financement.setMontant(rs.getFloat("montant"));
+                financement.setStatus(rs.getString("status"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error getting financement by id " + id, e);
+        }
+        return financement;
+    }
+    public static int addFinancingRequest(FinancementBean financement) throws SQLException {
+    JDBCConnectionManager DAO = new JDBCConnectionManager();
+    Connection connection = DAO.getConnection();
+    String query = "INSERT INTO financement (id_user, description, montant) VALUES (?, ?, ?)";
+    int generatedId = 0;
+
+    try (PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+        stmt.setInt(1, financement.getId_user());
+        stmt.setString(2, financement.getDescription());
+        stmt.setFloat(3, financement.getMontant());
+        stmt.executeUpdate();
+
+        ResultSet rs = stmt.getGeneratedKeys();
+        if (rs.next()) {
+            generatedId = rs.getInt(1);
+        }
+    } catch (SQLException e) {
+        throw new RuntimeException("Error adding financing request", e);
+    }
+    return generatedId;
+}
     public static void AdminaddUser(UserBean user) throws SQLException {
         JDBCConnectionManager DAO = new JDBCConnectionManager();
         Connection connection = DAO.getConnection();
@@ -514,16 +605,6 @@ public class CRUD
     
     public static void deleteReclamation(int id) {
 
-    }
-
-    
-    public static FinancementBean getFinancementById(int id) {
-        return null;
-    }
-
-    
-    public static List<FinancementBean> getAllFinancements() {
-        return List.of();
     }
 
     

@@ -1,14 +1,19 @@
 package Bean;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class FinancementBean implements Serializable {
     int id;
     int id_user;
     String description;
-    Date date;
+    Timestamp date;
+    float montant;
     String status;
+
+    public float getMontant() {return montant;}
+
+    public void setMontant(float montant) {this.montant = montant;}
 
     public int getId() {
         return id;
@@ -34,11 +39,11 @@ public class FinancementBean implements Serializable {
         this.description = description;
     }
 
-    public Date getDate() {
+    public Timestamp getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Timestamp date) {
         this.date = date;
     }
 

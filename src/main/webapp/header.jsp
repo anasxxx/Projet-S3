@@ -159,6 +159,7 @@
         .content {
             max-height: 100vh;
             max-width: 100vw;
+            height: 100vh;
             width: calc(100% - 25vw);
             position: relative;
             display: flex;
@@ -174,7 +175,7 @@
         .navbar {
             z-index: 1000;
             position: fixed;
-            margin-top: 0px;
+            margin-top: 0;
             background-color: var(--navbar-color);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 15px ;
@@ -231,7 +232,7 @@
 
         /* Table styles */
         .table {
-            width: 60vw;
+            margin-top: 100px;
             background-color: rgba(0, 0, 0, 0.1); /* Light background */
             border-radius: 15px; /* Increased roundness for a more modern look */
             color: white;
@@ -240,7 +241,6 @@
             transition: all 0.3s ease;
             position: relative;
             border-collapse: collapse;
-            margin: 25px 0;
             font-size: 0.9em;
             font-family: sans-serif;
             max-width: 100vw;
@@ -253,7 +253,9 @@
             color: var(--light-color);
             text-align: left;
         }
-        .table th,
+        .table th{
+            background-color: var(--light-color);
+        }
         .table td {
             padding: 12px 15px;
         }
@@ -278,7 +280,7 @@
 
         .table tbody tr:hover {
             background-color: #ff9f00; /* Bright orange on hover */
-            transform: scale(1.02); /* Slightly larger hover effect */
+            transform: scale(1.01); /* Slightly larger hover effect */
             transition: ease-out 0.2s;
             cursor: pointer;
         }
@@ -438,24 +440,45 @@
     <nav class="navbar">
         <div class="container-fluid d-flex justify-content-end">
             <ul class="navbar-nav d-flex flex-row">
-                <li class="nav-item">
-                    <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/GetusersServlet">Users</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Complaints</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Announcements</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Announcements to approve</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Financing requests</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Finances</a>
-                </li>
+                <c:choose>
+                    <c:when test="${sessionScope.role eq 'P'}">
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/GetusersServlet">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Complaints</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Announcements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Announcements to approve</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/FinancesServlet">Financing requests</a>
+                        </li>
+                    </c:when>
+                    <c:when test="${sessionScope.role eq 'Chef'}">
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/ComplaintsServlet">Complaints</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/AnnouncementsServlet">Announcements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/FinancesServlet">My Finances</a>
+                        </li>
+                    </c:when>
+                    <c:when test="${sessionScope.role eq 'Étudiant'}">
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/AnnouncementsServlet">Announcements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/ClubsServlet">Clubs</a>
+                        </li>
+                    </c:when>
+
+                </c:choose>
 
             </ul>
         </div>

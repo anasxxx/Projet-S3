@@ -10,7 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68a7f483-d36e-4290-a24d-0854b9bb7dab" name="Changes" comment="Dao &#10;DB creation&#10;DB connection&#10;Bean creation">
+      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/FinancesServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/ReclamationServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/SubmitFinancingServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/finances.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/finances/bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/adei.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/ensias.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/FinancementBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/FinancementBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/JAVA/DAO/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/CRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/ProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/ProfileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/users.jsp" afterDir="false" />
     </list>
@@ -78,7 +90,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/pc/Desktop/Projet S3/src/main/JAVA&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/Desktop/Projet S3&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pc/Desktop/Projet S3/src/main/webapp/img&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -97,6 +109,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pc\Desktop\Projet S3\src\main\webapp\img" />
+      <recent name="C:\Users\pc\Desktop\Projet S3\src\main\webapp\finances" />
       <recent name="C:\Users\pc\Desktop\Projet S3\target\JDBC-1.0-SNAPSHOT\WEB-INF\lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -288,7 +302,13 @@
       <workItem from="1736179204118" duration="2591000" />
       <workItem from="1736275425644" duration="10374000" />
       <workItem from="1736290776108" duration="10020000" />
-      <workItem from="1736302926073" duration="1320000" />
+      <workItem from="1736302926073" duration="1682000" />
+      <workItem from="1736340848751" duration="1623000" />
+      <workItem from="1736342935023" duration="8884000" />
+      <workItem from="1736431849998" duration="5193000" />
+      <workItem from="1736438642574" duration="5347000" />
+      <workItem from="1736561021774" duration="25000" />
+      <workItem from="1736561903408" duration="22000" />
     </task>
     <task id="LOCAL-00001" summary="Dao &#10;DB creation&#10;DB connection&#10;Bean creation">
       <option name="closed" value="true" />
@@ -306,7 +326,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736290954707</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Dao &#10;DB creation&#10;DB connection&#10;Bean creation">
+      <option name="closed" value="true" />
+      <created>1736304613723</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1736304613723</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

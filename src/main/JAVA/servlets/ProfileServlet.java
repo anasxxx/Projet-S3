@@ -27,26 +27,17 @@ public class ProfileServlet extends HttpServlet
         UserBean mainUser= new UserBean();
         mainUser= CRUD.getUserById(id);
 
-
-        if(!mainUser.getRole().equals("P"))
+        UserBean user=new UserBean();
+        try
         {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
-            dispatcher.forward(request, response);
+            user=CRUD.getUserById(id);
         }
-        else
+        catch (Exception e)
         {
-            UserBean user=new UserBean();
-            try
-            {
-                user=CRUD.getUserById(id);
-            }
-            catch (Exception e)
-            {
-                throw new RuntimeException(e);
-            }
-            request.setAttribute("user", user);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
-            dispatcher.forward(request, response);
+            throw new RuntimeException(e);
         }
+        request.setAttribute("user", user);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
+        dispatcher.forward(request, response);
     }
 }

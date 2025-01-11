@@ -556,20 +556,6 @@
                                 </div>
                             </a>
                         </div>
-
-                        <!-- Finances -->
-                        <div class="col-md-4">
-                            <a href="#">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title ">Finances</h5>
-                                        <p class="card-text ">
-                                            Track and manage financial records, including club budgets and expenses.
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -606,45 +592,14 @@
                                 </div>
                             </a>
                         </div>
-
-                        <!-- My Complaints -->
-                        <div class="col-md-4">
-                            <a href="#">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title ">My Complaints</h5>
-                                        <p class="card-text ">
-                                            Review and track the status of complaints you have submitted. Stay updated on their resolution.
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="row text-center mt-4">
                         <!-- Financing Requests -->
                         <div class="col-md-4">
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath}/FinancesServlet">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title ">Request Financing</h5>
                                         <p class="card-text ">
                                             Submit a financing request for your club and track its approval status.
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- My Financing Requests -->
-                        <div class="col-md-4">
-                            <a href="#">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title ">My Financing Requests</h5>
-                                        <p class="card-text ">
-                                            Track and manage the financing requests you have submitted for your club.
                                         </p>
                                     </div>
                                 </div>
