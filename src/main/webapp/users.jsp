@@ -79,20 +79,6 @@
             <td>${user.updated_at}</td>
         </tr>
     </c:forEach>
-    <c:forEach var="user" items="${users}">
-        <tr>
-            <td>${user.id}</td>
-            <td>${user.first_name}</td>
-            <td>${user.last_name}</td>
-            <td>${user.email}</td>
-            <td>${user.massar}</td>
-            <td>${user.phone}</td>
-            <td>${user.sexe}</td>
-            <td>${user.role}</td>
-            <td>${user.created_at}</td>
-            <td>${user.updated_at}</td>
-        </tr>
-    </c:forEach>
     </tbody>
 </table>
 <footer class="mt-5" style="margin-top: 0" >

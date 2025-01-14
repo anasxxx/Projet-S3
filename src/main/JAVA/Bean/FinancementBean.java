@@ -9,8 +9,16 @@ public class FinancementBean implements Serializable {
     String description;
     Timestamp date;
     float montant;
+    String title;
     String status;
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
     public float getMontant() {return montant;}
 
     public void setMontant(float montant) {this.montant = montant;}

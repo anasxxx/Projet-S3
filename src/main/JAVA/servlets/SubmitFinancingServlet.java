@@ -3,10 +3,9 @@ package servlets;
 import Bean.FinancementBean;
 import Bean.UserBean;
 import DAO.CRUD;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -19,26 +18,22 @@ import jakarta.servlet.http.HttpSession;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
+import java.text.SimpleDateFormat;
 
 @WebServlet("/SubmitFinancingServlet")
 public class SubmitFinancingServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
-        int id= (int) session.getAttribute("id");
+        int id = (int) session.getAttribute("id");
         String role = (String) session.getAttribute("role");
 
+        UserBean mainUser = CRUD.getUserById(id);
 
-
-        UserBean mainUser= new UserBean();
-        mainUser= CRUD.getUserById(id);
-
-        if(!mainUser.getRole().equals("Chef"))
-        {
+        if (!mainUser.getRole().equals("Chef")) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
             dispatcher.forward(request, response);
+            return;
         }
 
         int id_user = id;
@@ -57,45 +52,64 @@ public class SubmitFinancingServlet extends HttpServlet {
             throw new ServletException(e);
         }
         Timestamp date = CRUD.getFinancementById(generatedId).getDate();
+        String formattedDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
         String filePath = getServletContext().getRealPath("/finances/") + generatedId + ".pdf";
-        Document document = new Document();
+
+        // Generate PDF
         try {
-    PdfWriter.getInstance(document, new FileOutputStream(filePath));
-    document.open();
-    String leftImagePath = getServletContext().getRealPath("/img/ensias.png");
-    String rightImagePath = getServletContext().getRealPath("/img/adei.png");
-    Image leftImage = Image.getInstance(leftImagePath);
-    Image rightImage = Image.getInstance(rightImagePath);
-    if (leftImage != null && rightImage != null) {
-        leftImage.setAlignment(Image.LEFT);
-        rightImage.setAlignment(Image.RIGHT);
-        document.add(leftImage);
-        document.add(rightImage);
-    }
-    document.add(new Paragraph("Financing Request Details:"));
-    document.add(new Paragraph("ID: " + generatedId));
-    document.add(new Paragraph("User ID: " + id_user));
-    document.add(new Paragraph("Description: " + description));
-    document.add(new Paragraph("Date: " + date));
-    document.add(new Paragraph("Montant: " + montant));
-} catch (DocumentException e) {
-    throw new ServletException(e);
-} finally {
-    if (document.isOpen()) {
-        document.close();
-    }
-}
-        List<FinancementBean> financements= new ArrayList<FinancementBean>();
-        try
-        {
-            financements=CRUD.getFinancementsByUserId(id);
+            Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream(filePath));
+            document.open();
+
+            Image ensisaLogo = Image.getInstance(getServletContext().getRealPath("/img/ensias.png"));
+            ensisaLogo.scaleToFit(200, 100);
+            ensisaLogo.setBorder(Rectangle.NO_BORDER);
+            Image adeiLogo = Image.getInstance(getServletContext().getRealPath("/img/adei.png"));
+            adeiLogo.scaleToFit(220, 110);
+            adeiLogo.setBorder(Rectangle.NO_BORDER);
+
+            PdfPTable table = new PdfPTable(2);
+            table.setWidthPercentage(100);
+            table.setSpacingBefore(20);
+            table.setSpacingAfter(20);
+            PdfPCell cell1 = new PdfPCell(ensisaLogo);
+            cell1.setBorder(Rectangle.NO_BORDER);
+            cell1.setHorizontalAlignment(Element.ALIGN_LEFT);
+            PdfPCell cell2 = new PdfPCell(adeiLogo);
+            cell2.setBorder(Rectangle.NO_BORDER);
+            cell2.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            table.addCell(cell1);
+            table.addCell(cell2);
+            document.add(table);
+
+            // Fonts
+            Font titleFont = new Font(Font.FontFamily.HELVETICA, 26, Font.BOLD);
+            Font descriptionTitleFont = new Font(Font.FontFamily.HELVETICA, 20, Font.BOLD);
+            Font detailsFont = new Font(Font.FontFamily.HELVETICA, 14, Font.NORMAL);
+
+            // Centered title
+            Paragraph title = new Paragraph("Financing Request", titleFont);
+            title.setAlignment(Element.ALIGN_CENTER);
+            title.setSpacingAfter(20);
+            document.add(title);
+
+            // Other elements at the start
+            document.add(new Paragraph("ID: " + generatedId, detailsFont));
+            document.add(new Paragraph("User: " + mainUser.getFirst_name() + " " + mainUser.getLast_name(), detailsFont));
+            document.add(new Paragraph("Amount: " + montant, detailsFont));
+            document.add(new Paragraph("Date: " + formattedDate, detailsFont));
+
+            // Description as a paragraph title
+            Paragraph descriptionTitle = new Paragraph("Description", descriptionTitleFont);
+            descriptionTitle.setSpacingBefore(20);
+            document.add(descriptionTitle);
+            document.add(new Paragraph(description, detailsFont));
+
+            document.close();
+        } catch (DocumentException | IOException e) {
+            throw new ServletException("Error generating PDF", e);
         }
-        catch (Exception e)
-        {
-            throw new RuntimeException(e);
-        }
-        request.setAttribute("financements", financements);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("finances.jsp");
-        dispatcher.forward(request, response);
+
+        response.sendRedirect("FinancesServlet");
     }
 }

@@ -60,18 +60,7 @@ public class AdminSignupServlet extends HttpServlet
             {
                 throw new RuntimeException(e);
             }
-            List<UserBean> users=new ArrayList<UserBean>();
-            try
-            {
-                users=CRUD.getAllUsers();
-            }
-            catch (Exception e)
-            {
-                throw new RuntimeException(e);
-            }
-            request.setAttribute("users", users);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("users.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect("GetusersServlet");
         }
     }
 }

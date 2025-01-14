@@ -144,17 +144,18 @@ public class CRUD
         JDBCConnectionManager DAO = new JDBCConnectionManager();
         Connection connection = DAO.getConnection();
         PreparedStatement stmt = null;
-        String query = "SELECT * FROM financement WHERE id_user = ?";
+        String query = "SELECT * FROM financement WHERE id_user = ? ORDER BY date DESC";
         List<FinancementBean> financements;
         try {
             stmt = connection.prepareStatement(query);
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             financements = new ArrayList<FinancementBean>();
-            if (rs.next()) {
+            while (rs.next()) {
                 FinancementBean financement = new FinancementBean();
                 financement.setId(rs.getInt("id"));
                 financement.setId_user(id);
+                financement.setTitle(rs.getString("title"));
                 financement.setDescription(rs.getString("description"));
                 financement.setDate(rs.getTimestamp("date"));
                 financement.setMontant(rs.getFloat("montant"));
@@ -170,7 +171,7 @@ public class CRUD
         JDBCConnectionManager DAO = new JDBCConnectionManager();
         Connection connection = DAO.getConnection();
         PreparedStatement stmt = null;
-        String query = "SELECT * FROM financement WHERE id = ?";
+        String query = "SELECT * FROM financement WHERE id = ? ORDER BY date DESC";
         FinancementBean financement = new FinancementBean();
         try {
             stmt = connection.prepareStatement(query);
@@ -180,6 +181,7 @@ public class CRUD
                 financement.setId(id);
                 financement.setId_user(rs.getInt("id_user"));
                 financement.setDescription(rs.getString("description"));
+                financement.setTitle(rs.getString("title"));
                 financement.setDate(rs.getTimestamp("date"));
                 financement.setMontant(rs.getFloat("montant"));
                 financement.setStatus(rs.getString("status"));

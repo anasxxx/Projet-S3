@@ -11,7 +11,7 @@ import java.util.Properties;
 
 public class EmailSender
 {
-    static final String PROPERTIES_FILE = "C:/Users/pc/Desktop/Projet JEE/src/main/resources/DAO.properties";
+    static final String PROPERTIES_FILE = "C:/Users/othma/Desktop/Save/Projet S3/src/main/resources/DAO.properties";
     static String host;
     static String port;
     static String username;

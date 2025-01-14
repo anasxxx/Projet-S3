@@ -1,56 +1,53 @@
 package DAO;
 
-import Bean.*;
-
-import java.io.FileInputStream;
 import java.io.InputStream;
-import java.sql.*;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.Properties;
 
-import static java.lang.Class.forName;
+public class JDBCConnectionManager implements ConnectionManager {
 
-public class JDBCConnectionManager implements ConnectionManager
-{
-    static final String PROPERTIES_FILE = "C:/Users/pc/Desktop/Projet S3/src/main/resources/DAO.properties";
-    public static String driver;
-    static String url;         // Database URL
-    static String user;   // Database username
-    static String pass;   // Database password
-    static InputStream input;
+    private static String driver;
+    private static String url;   // Database URL
+    private static String user;  // Database username
+    private static String pass;  // Database password
 
-    public JDBCConnectionManager()
-    {
+    public JDBCConnectionManager() {
         Properties properties = new Properties();
-        try
-        {
-            input = new FileInputStream(PROPERTIES_FILE);
-            if (input == null)
-            {
-                throw new RuntimeException(PROPERTIES_FILE + " not found");
+        try (InputStream input = getClass().getClassLoader().getResourceAsStream("DAO.properties")) {
+            if (input == null) {
+                throw new RuntimeException("Property file 'DAO.properties' not found in the classpath");
             }
-            properties.load(input);
-            driver = properties.getProperty("driver");
-            url = properties.getProperty("url");
-            user = properties.getProperty("user");
-            pass = properties.getProperty("pass");
+
+            // Load properties from file
+            try
+            {
+                properties.load(input);
+                driver = properties.getProperty("driver");
+                url = properties.getProperty("url");
+                user = properties.getProperty("user");
+                pass = properties.getProperty("pass");
+            }
+            catch (Exception e)
+                {
+                    System.out.println(e);
+                    throw new RuntimeException("Failed to load DAO.properties", e);
+                }
+
+
+            // Load the JDBC driver
             Class.forName(driver);
-        }
-        catch (Exception e)
-        {
-            throw new ExceptionInInitializerError(e);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to initialize JDBCConnectionManager", e);
         }
     }
 
-    public Connection getConnection()
-    {
-        try
-        {
+    @Override
+    public Connection getConnection() {
+        try {
             return DriverManager.getConnection(url, user, pass);
-        }
-        catch (Exception e)
-        {
-            throw new ExceptionInInitializerError(e);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to establish database connection", e);
         }
     }
 }

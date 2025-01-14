@@ -154,7 +154,12 @@
             background-color: rgba(0, 0, 19, 0);
             transform: scale(1.05); /* Subtle scaling on hover */
         }
-
+        .my-input {
+            padding: 10px;
+            border: 1px solid blue;
+            border-radius: 4px;
+            color: pink;
+        }
         /* Content styles */
         .content {
             max-height: 100vh;
