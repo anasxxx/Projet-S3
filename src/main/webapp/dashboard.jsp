@@ -545,7 +545,7 @@
 
                         <!-- Financing Requests -->
                         <div class="col-md-4">
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath}/AllFinancesServlet">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title ">Financing Requests</h5>

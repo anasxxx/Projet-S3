@@ -9,22 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68a7f483-d36e-4290-a24d-0854b9bb7dab" name="Changes" comment="Dao &#10;DB creation&#10;DB connection&#10;Bean creation">
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/DownloadPDFServlet.java" afterDir="false" />
+    <list default="true" id="68a7f483-d36e-4290-a24d-0854b9bb7dab" name="Changes" comment="pdf creaction finalized&#10;front updated">
+      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/AllFinancesServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/FinancementBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/FinancementBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/JAVA/DAO/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/CRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/DAO/EmailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/EmailSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/DAO/JDBCConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/JDBCConnectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/AdminSignupServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/AdminSignupServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/LogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/LogoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/FinancesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/FinancesServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/SubmitFinancingServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/SubmitFinancingServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/finances.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/finances.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/adei.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/adei.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/ensias.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/ensias.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/users.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +36,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="othmane &lt;othmane2rabat@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -53,7 +52,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/BABAYAGA-5/Projet-S3.git&quot;,
-    &quot;accountId&quot;: &quot;66e4b8d9-8cc5-429d-ae08-ff5893b952ba&quot;
+    &quot;accountId&quot;: &quot;0cfd870f-95cf-4c11-ac06-a66f866aa4e8&quot;
   }
 }</component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -79,33 +78,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 10.1.31.executor": "Run",
-    "Tomcat Server.Tomcat 10.1.311.executor": "Run",
-    "Tomcat Server.meta.jsp.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/pc/Desktop/Projet S3/src/main/JAVA",
-    "last_opened_file_path": "C:/Users/othma/Desktop/Save/Projet S3/target/Projet_S3-1.0-SNAPSHOT/img",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.49885058",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.31.executor&quot;: &quot;Run&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.311.executor&quot;: &quot;Run&quot;,
+    &quot;Tomcat Server.meta.jsp.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/pc/Desktop/Projet S3/src/main/JAVA&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/othma/Desktop/Save/Projet S3/target/Projet_S3-1.0-SNAPSHOT/img&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.49885058&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
@@ -321,7 +320,8 @@
       <workItem from="1736662682639" duration="6361000" />
       <workItem from="1736670981300" duration="1981000" />
       <workItem from="1736726678625" duration="793000" />
-      <workItem from="1736806874817" duration="8541000" />
+      <workItem from="1736806874817" duration="8750000" />
+      <workItem from="1737043184775" duration="7010000" />
     </task>
     <task id="LOCAL-00001" summary="Dao &#10;DB creation&#10;DB connection&#10;Bean creation">
       <option name="closed" value="true" />
@@ -355,7 +355,23 @@
       <option name="project" value="LOCAL" />
       <updated>1736565668801</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="pdf creaction finalized&#10;front updated">
+      <option name="closed" value="true" />
+      <created>1736815578936</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1736815578936</updated>
+    </task>
+    <task id="LOCAL-00006" summary="pdf creaction finalized&#10;front updated">
+      <option name="closed" value="true" />
+      <created>1736815666804</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1736815666804</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,6 +379,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Dao &#10;DB creation&#10;DB connection&#10;Bean creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dao &#10;DB creation&#10;DB connection&#10;Bean creation" />
+    <MESSAGE value="Dao&#10;DB creation&#10;DB connection&#10;Bean creation" />
+    <MESSAGE value="pdf creaction finalized&#10;front updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="pdf creaction finalized&#10;front updated" />
   </component>
 </project>

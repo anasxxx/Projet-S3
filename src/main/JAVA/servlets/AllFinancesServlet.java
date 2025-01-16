@@ -15,8 +15,8 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.*;
 
-@WebServlet("/FinancesServlet")
-public class FinancesServlet extends HttpServlet {
+@WebServlet("/AllFinancesServlet")
+public class AllFinancesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
@@ -27,7 +27,7 @@ public class FinancesServlet extends HttpServlet {
         mainUser= CRUD.getUserById(id);
 
 
-        if(!mainUser.getRole().equals("Chef"))
+        if(!mainUser.getRole().equals("P"))
         {
             RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
             dispatcher.forward(request, response);
@@ -37,7 +37,7 @@ public class FinancesServlet extends HttpServlet {
             List<FinancementBean> financements= new ArrayList<FinancementBean>();
             try
             {
-                financements=CRUD.getFinancementsByUserId(id);
+                financements= (List<FinancementBean>) CRUD.getAllFinancements();
             }
             catch (Exception e)
             {

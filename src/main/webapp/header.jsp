@@ -250,7 +250,7 @@
             font-family: sans-serif;
             max-width: 100vw;
             min-width: 400px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0 10px black;
         }
 
         .table thead tr {
@@ -262,14 +262,14 @@
             background-color: var(--light-color);
         }
         .table td {
+            position: relative;
             padding: 12px 15px;
         }
+
         .table tbody tr.active-row {
             font-weight: bold;
             color: #009879;
         }
-
-
 
         .table tbody tr {
             border-bottom: 1px solid #dddddd;
@@ -285,8 +285,6 @@
 
         .table tbody tr:hover {
             background-color: #ff9f00; /* Bright orange on hover */
-            transform: scale(1.01); /* Slightly larger hover effect */
-            transition: ease-out 0.2s;
             cursor: pointer;
         }
 
@@ -296,7 +294,8 @@
         }
 
         .table tbody tr:hover td {
-            color: black; /* Change text color on hover */
+            background-color: #c0c0c0;
+            transition: background-color 0.3s ease-in-out;
         }
 
 
@@ -327,7 +326,22 @@
             outline: none;
             box-shadow: 0 0 5px rgba(255, 87, 34, 0.5); /* Bright focus effect for better visibility */
         }
+        /* CSS */
+        .download-btn {
+            display: none;
+            position: absolute;
+            z-index: 1000;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
+        .download-btn:hover {
+            background-color: #218838;
+        }
         /* Responsive styling */
         @media (max-width: 768px) {
             .table th, .table td {
@@ -335,8 +349,45 @@
                 font-size: 14px; /* Smaller font for mobile */
             }
         }
+        /* CSS */
+        .menu-container {
+            position: relative;
+            display: inline-block;
+            border-radius: 10px;
+        }
 
+        .menu-btn {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
 
+        .menu-options {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .menu-options button {
+            background: none;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .menu-options button:hover {
+            background-color: #f1f1f1;
+        }
+        button{
+            border-radius: 10px;
+        }
         /* Footer or additional content */
         footer {
             text-align: center;
@@ -460,7 +511,7 @@
                             <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Announcements to approve</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/FinancesServlet">Financing requests</a>
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/AllFinancesServlet">Financing requests</a>
                         </li>
                     </c:when>
                     <c:when test="${sessionScope.role eq 'Chef'}">

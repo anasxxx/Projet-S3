@@ -119,7 +119,7 @@ public class CRUD
     JDBCConnectionManager DAO = new JDBCConnectionManager();
     Connection connection = DAO.getConnection();
     PreparedStatement stmt = null;
-    String query = "SELECT * FROM financement";
+    String query = "SELECT * FROM financement ORDER BY date DESC";
     List<FinancementBean> financements = new ArrayList<>();
 
     try {
@@ -194,13 +194,14 @@ public class CRUD
     public static int addFinancingRequest(FinancementBean financement) throws SQLException {
     JDBCConnectionManager DAO = new JDBCConnectionManager();
     Connection connection = DAO.getConnection();
-    String query = "INSERT INTO financement (id_user, description, montant) VALUES (?, ?, ?)";
+    String query = "INSERT INTO financement (id_user, description, montant, title) VALUES (?, ?, ?, ?)";
     int generatedId = 0;
 
     try (PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
         stmt.setInt(1, financement.getId_user());
         stmt.setString(2, financement.getDescription());
         stmt.setFloat(3, financement.getMontant());
+        stmt.setString(4, financement.getTitle());
         stmt.executeUpdate();
 
         ResultSet rs = stmt.getGeneratedKeys();

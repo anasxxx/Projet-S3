@@ -39,11 +39,13 @@ public class SubmitFinancingServlet extends HttpServlet {
         int id_user = id;
         String description = request.getParameter("description");
         Float montant = Float.parseFloat(request.getParameter("montant"));
+        String title = request.getParameter("title");
 
         FinancementBean financingRequest = new FinancementBean();
         financingRequest.setId_user(id_user);
         financingRequest.setDescription(description);
         financingRequest.setMontant(montant);
+        financingRequest.setTitle(title);
 
         int generatedId = 0;
         try {
@@ -83,17 +85,22 @@ public class SubmitFinancingServlet extends HttpServlet {
             document.add(table);
 
             // Fonts
-            Font titleFont = new Font(Font.FontFamily.HELVETICA, 26, Font.BOLD);
+            Font headFont = new Font(Font.FontFamily.HELVETICA, 26, Font.BOLD);
+            Font titleFont = new Font(Font.FontFamily.HELVETICA, 23, Font.BOLD);
             Font descriptionTitleFont = new Font(Font.FontFamily.HELVETICA, 20, Font.BOLD);
             Font detailsFont = new Font(Font.FontFamily.HELVETICA, 14, Font.NORMAL);
 
             // Centered title
-            Paragraph title = new Paragraph("Financing Request", titleFont);
-            title.setAlignment(Element.ALIGN_CENTER);
-            title.setSpacingAfter(20);
-            document.add(title);
+            Paragraph head = new Paragraph("Financing Request", headFont);
+            head.setAlignment(Element.ALIGN_CENTER);
+            head.setSpacingAfter(20);
+            document.add(head);
 
             // Other elements at the start
+            Paragraph Title = new Paragraph(title, titleFont);
+            Title.setAlignment(Element.ALIGN_CENTER);
+            Title.setSpacingAfter(20);
+            document.add(Title);
             document.add(new Paragraph("ID: " + generatedId, detailsFont));
             document.add(new Paragraph("User: " + mainUser.getFirst_name() + " " + mainUser.getLast_name(), detailsFont));
             document.add(new Paragraph("Amount: " + montant, detailsFont));
