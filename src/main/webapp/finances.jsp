@@ -69,20 +69,15 @@
             </thead>
             <tbody>
             <c:forEach var="financement" items="${financements}">
-                <tr onmouseover="showDownloadButton(this)" onmouseout="hideDownloadButton(this)">
+                <tr id="${financement.id}">
                     <td>${financement.id}</td>
                     <td>${financement.title}</td>
                     <td>${financement.montant}</td>
                     <td>${financement.date}</td>
                     <td>${financement.status}</td>
                     <td style="position: relative;color: black">
-                        <div class="menu-container">
-                            <button class="menu-btn">⋮</button>
-                            <div class="menu-options">
-                                <button onclick="downloadPDF(${financement.id})">Download</button>
-                                <button onclick="deleteFinancement(${financement.id})">Delete</button>
-                            </div>
-                        </div>
+                        <button onclick="downloadPDF(${financement.id})"><i class="bi bi-download"></i></button>
+                        <button onclick="deleteFinancement(${financement.id})"><i class="bi bi-trash"></i></button>
                     </td>
                 </tr>
             </c:forEach>
@@ -99,6 +94,7 @@
                 <th>Amount</th>
                 <th>Date</th>
                 <th>Status</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -109,16 +105,10 @@
                     <td>${financement.montant}</td>
                     <td>${financement.date}</td>
                     <td>${financement.status}</td>
-                </tr>
                 <td style="position: relative;color: black">
-                    <div class="menu-container">
-                        <button class="menu-btn">⋮</button>
-                        <div class="menu-options">
-                            <button onclick="downloadPDF(${financement.id})">Download</button>
-                            <button onclick="deleteFinancement(${financement.id})">Delete</button>
-                        </div>
-                    </div>
+                    <button onclick="downloadPDF(${financement.id})">Download</button>
                 </td>
+                </tr>
             </c:forEach>
             </tbody>
         </table>
@@ -126,8 +116,19 @@
 </c:choose>
 
     <script>
-        // JavaScript
-        // JavaScript
+        function deleteFinancement(id) {
+    $.ajax({
+        url: 'DeleteFinancementServlet?id=' + id,
+        method: 'GET',
+        success: function() {
+            document.getElementById(id).remove();
+            console.log('Deleted financement with id:', id);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error deleting financement:', status, error);
+        }
+    });
+}
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.menu-btn').forEach(button => {
         button.addEventListener('click', function() {
@@ -144,22 +145,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-function deleteFinancement(id) {
-    // Implement the delete functionality here
-    console.log('Delete financement with id:', id);
-}
-        function showDownloadButton(row) {
-            const button = row.querySelector('.download-btn');
-            button.style.display = 'block';
-            button.style.position = 'absolute';
-            button.style.top = row.offsetTop + row.offsetHeight + 'px';
-            button.style.left = row.offsetLeft + 'px';
-        }
-
-        function hideDownloadButton(row) {
-            row.querySelector('.download-btn').style.display = 'none';
-        }
     </script>
 </body>
 </html>

@@ -130,6 +130,7 @@ public class CRUD
             financement.setId(rs.getInt("id"));
             financement.setId_user(rs.getInt("id_user"));
             financement.setDescription(rs.getString("description"));
+            financement.setTitle(rs.getString("title"));
             financement.setDate(rs.getTimestamp("date"));
             financement.setMontant(rs.getFloat("montant"));
             financement.setStatus(rs.getString("status"));
@@ -500,6 +501,22 @@ public class CRUD
         }
         return reclamations;
     }
+    public static void deleteFinancement(int id)
+    {
+        JDBCConnectionManager DAO = new JDBCConnectionManager();
+        Connection connection = DAO.getConnection();
+        String query = "DELETE FROM financement WHERE id = ?";
+
+        try (PreparedStatement stmt = connection.prepareStatement(query))
+        {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException("Error deleting financement", e);
+        }
+    }
     public static void SendResetEmail(String massar) throws Exception {
         JDBCConnectionManager DAO = new JDBCConnectionManager();
         Connection connection = DAO.getConnection();
@@ -621,9 +638,7 @@ public class CRUD
     }
 
     
-    public static void deleteFinancement(int id) {
 
-    }
 
     
     public static DepensesBean getDepensesById(int id) {

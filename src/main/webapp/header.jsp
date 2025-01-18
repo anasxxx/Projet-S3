@@ -287,15 +287,23 @@
             background-color: #ff9f00; /* Bright orange on hover */
             cursor: pointer;
         }
-
+        .table tbody td button {
+            background:transparent;
+            border: none;
+        }
+        .table tbody td button:hover {
+            background-color: grey;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            transform: scale(1.1);
+        }
         .table td:first-child {
             font-weight: bold; /* Bold first column */
             color: #007bff; /* Highlight first column in blue */
         }
 
         .table tbody tr:hover td {
-            background-color: #c0c0c0;
-            transition: background-color 0.3s ease-in-out;
         }
 
 
