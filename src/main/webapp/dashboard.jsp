@@ -483,7 +483,7 @@
         <c:when test="${sessionScope.role eq 'P'}">
             <section class="mt-5">
                 <div class="container">
-                    <div class="row text-center">
+                    <div class="row text-center mt-4">
                         <!-- Users -->
                         <div class="col-md-4">
                             <a href="${pageContext.request.contextPath}/GetusersServlet">
@@ -500,7 +500,7 @@
 
                         <!-- Complaints -->
                         <div class="col-md-4">
-                            <a href="${pageContext.request.contextPath}/login.jsp">
+                            <a href="${pageContext.request.contextPath}/ComplaintServlet">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title ">Complaints</h5>
@@ -511,10 +511,9 @@
                                 </div>
                             </a>
                         </div>
-
                         <!-- Announcements -->
                         <div class="col-md-4">
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath}/AnnouncementsServlet">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title ">Announcements</h5>
@@ -526,25 +525,26 @@
                                 </div>
                             </a>
                         </div>
+
+
                     </div>
 
                     <div class="row text-center mt-4">
-                        <!-- Announcements to Approve -->
-                        <div class="col-md-4">
+                        <!-- Clubs -->
+                        <div class="col-md-6">
                             <a href="#">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title ">Announcements to Approve</h5>
+                                        <h5 class="card-title ">Clubs</h5>
                                         <p class="card-text ">
-                                            Review and approve announcements submitted by club members or administrators.
+                                            Create announcements to keep everyone informed about the latest updates and news.
                                         </p>
                                     </div>
                                 </div>
                             </a>
                         </div>
-
                         <!-- Financing Requests -->
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <a href="${pageContext.request.contextPath}/AllFinancesServlet">
                                 <div class="card">
                                     <div class="card-body">
@@ -567,7 +567,7 @@
                     <div class="row text-center">
                         <!-- Complaints -->
                         <div class="col-md-4">
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath}/ComplaintServlet">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title ">Complaints</h5>
@@ -581,7 +581,7 @@
 
                         <!-- Announcements -->
                         <div class="col-md-4">
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath}/AnnouncementsServlet">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title ">Announcements</h5>
@@ -620,6 +620,32 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title ">Announcements</h5>
+                                        <p class="card-text ">
+                                            Create announcements to keep everyone informed about the latest updates and news.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Complaints -->
+                        <div class="col-md-4">
+                            <a href="${pageContext.request.contextPath}/ComplaintServlet">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title ">Complaints</h5>
+                                        <p class="card-text ">
+                                            Submit your complaints and track their status. Ensure your concerns are addressed promptly.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Clubs -->
+                        <div class="col-md-4">
+                            <a href="#">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title ">Clubs</h5>
                                         <p class="card-text ">
                                             Create announcements to keep everyone informed about the latest updates and news.
                                         </p>

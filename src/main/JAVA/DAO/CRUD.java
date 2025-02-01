@@ -78,6 +78,37 @@ public class CRUD
         }
         return user;
     }
+   public static UserBean getUserChef() {
+    JDBCConnectionManager DAO = new JDBCConnectionManager();
+    Connection connection = DAO.getConnection();
+    PreparedStatement stmt = null;
+    String query = "SELECT * FROM user WHERE role = 'Chef'";
+    UserBean user = new UserBean();
+    try {
+        stmt = connection.prepareStatement(query);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            user.setId(rs.getInt("id"));
+            user.setFirst_name(rs.getString("first_name"));
+            user.setLast_name(rs.getString("last_name"));
+            user.setPhone(rs.getString("phone"));
+            user.setSexe(rs.getString("sexe"));
+            user.setRole(rs.getString("role"));
+            user.setMassar(rs.getString("massar"));
+            user.setEmail(rs.getString("massar") + "@um5.ac.ma");
+            user.setPassword(rs.getString("password"));
+            user.setToken(rs.getString("token"));
+            user.setToken_validity(rs.getTimestamp("token_validity"));
+            user.setUpdated_at(rs.getTimestamp("updated_at"));
+            user.setCreated_at(rs.getTimestamp("created_at"));
+        } else {
+            return null;
+        }
+    } catch (SQLException e) {
+        throw new RuntimeException("Error getting user with role Chef", e);
+    }
+    return user;
+}
 
     
     public static List<UserBean> getAllUsers()
@@ -115,6 +146,29 @@ public class CRUD
         }
         return users;
     }
+    public static List<ClubBean> getAllCubs() {
+    JDBCConnectionManager DAO = new JDBCConnectionManager();
+    Connection connection = DAO.getConnection();
+    PreparedStatement stmt = null;
+    String query = "SELECT * FROM club";
+    List<ClubBean> clubs = new ArrayList<>();
+
+    try {
+        stmt = connection.prepareStatement(query);
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            ClubBean club = new ClubBean();
+            club.setId(rs.getInt("id"));
+            club.setName(rs.getString("name"));
+            club.setDescription(rs.getString("description"));
+            club.setAcronym(rs.getString("acronym"));
+            clubs.add(club);
+        }
+    } catch (SQLException e) {
+        throw new RuntimeException("Error getting all clubs", e);
+    }
+    return clubs;
+}
     public static List<FinancementBean> getAllFinancements() {
     JDBCConnectionManager DAO = new JDBCConnectionManager();
     Connection connection = DAO.getConnection();
@@ -360,7 +414,6 @@ public class CRUD
             rs.next();
             annonce.setId(rs.getInt("id"));
             annonce.setId_user(rs.getInt("id_user"));
-            annonce.setStatut(rs.getString("statut"));
             annonce.setDate(rs.getDate("date"));
             annonce.setCaption(rs.getString("caption"));
         }
@@ -377,7 +430,7 @@ public class CRUD
         JDBCConnectionManager DAO = new JDBCConnectionManager();
         Connection connection = DAO.getConnection();
         PreparedStatement stmt=null;
-        String query = "select * from annonce";
+        String query = "select * from annonce join user on annonce.id_user=user.id join club on user.id=club.id_president";
         List<AnnonceBean> annonces=new ArrayList<AnnonceBean>();
         try
         {
@@ -388,9 +441,10 @@ public class CRUD
                 AnnonceBean annonce=new AnnonceBean();
                 annonce.setId(rs.getInt("id"));
                 annonce.setId_user(rs.getInt("id_user"));
-                annonce.setStatut(rs.getString("statut"));
                 annonce.setDate(rs.getDate("date"));
                 annonce.setCaption(rs.getString("caption"));
+                annonce.setClub_name(rs.getString("name"));
+                annonce.setId_club(rs.getInt("club.id"));
                 annonces.add(annonce);
             }
         }
@@ -402,24 +456,27 @@ public class CRUD
     }
 
     
-    public static void addAnnonce(AnnonceBean annonce)
+    public static int addAnnonce(AnnonceBean annonce)
     {
         JDBCConnectionManager DAO = new JDBCConnectionManager();
         Connection connection = DAO.getConnection();
-        String query = "INSERT INTO annonce (id_user, statut, date, caption) " +
-                "VALUES (?, ?, ?, ?)";
-
-        try (PreparedStatement stmt = connection.prepareStatement(query))
+        String query = "INSERT INTO annonce (id_user, caption) " +
+                "VALUES (?, ?)";
+        int generatedId = 0;
+        try (PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS))
         {
-            stmt.setInt(1, annonce.getId());
-            stmt.setString(2,annonce.getStatut());
-            stmt.setDate(3,annonce.getDate());
-            stmt.setString(4,annonce.getCaption());
+            stmt.setInt(1, annonce.getId_user());
+            stmt.setString(2,annonce.getCaption());
             stmt.executeUpdate();
+
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next()) {
+                generatedId = rs.getInt(1);
+            }
+            return generatedId;
         }
-        catch (SQLException e)
-        {
-            throw new RuntimeException("Error adding annonce", e);
+        catch (SQLException e) {
+            throw new RuntimeException("Error adding announcement", e);
         }
     }
 
@@ -500,6 +557,37 @@ public class CRUD
             throw new RuntimeException("Error getting reclamations", e);
         }
         return reclamations;
+    }
+    public static void approveFinancement(int id)
+    {
+        JDBCConnectionManager DAO = new JDBCConnectionManager();
+        Connection connection = DAO.getConnection();
+        String query = "UPDATE financement SET status = 'Approuvée' WHERE id = ?";
+
+        try (PreparedStatement stmt = connection.prepareStatement(query))
+        {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException("Error approving financement", e);
+        }
+    }
+    public static void refuseFinancement(int id)
+    {
+        JDBCConnectionManager DAO = new JDBCConnectionManager();
+        Connection connection = DAO.getConnection();
+        String query = "UPDATE financement SET status = 'Refusée' WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query))
+        {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            throw new RuntimeException("Error refusing financement", e);
+        }
     }
     public static void deleteFinancement(int id)
     {

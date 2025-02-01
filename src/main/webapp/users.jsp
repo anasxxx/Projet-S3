@@ -49,7 +49,7 @@
     </div>
 </form>
 <div id="phone_check" style="margin-top: 0"></div>
-<table class="table table-bordered">
+<table class="table">
     <thead>
     <tr>
         <th>ID</th>
@@ -81,7 +81,7 @@
     </c:forEach>
     </tbody>
 </table>
-<footer class="mt-5" style="margin-top: 0" >
+<footer>
     <p class="text-center text-white-50">
         © 2024 ParaEnsias. All rights reserved.
     </p>

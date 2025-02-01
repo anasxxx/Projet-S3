@@ -35,7 +35,7 @@
 <body>
 <c:choose>
     <c:when test="${sessionScope.role eq 'Chef'}">
-        <form action="${pageContext.request.contextPath}/SubmitFinancingServlet" method="post" class="row g-3 justify-content-center" style="max-width: 600px; margin: 100px auto;">
+        <form action="${pageContext.request.contextPath}/SubmitFinancingServlet" method="post" class="row g-3 justify-content-center" style="max-width: 600px; margin-top: 100px;">
             <h2 class="text-center">Submit a Financing Request</h2>
             <div class="finance d-flex justify-content-between">
                 <div class="col-md-5">
@@ -55,8 +55,8 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
-        <h2>Your Financing Requests</h2>
-        <table class="table table-content">
+        <h2 style="margin-top: 50px;">Your Financing Requests</h2>
+        <table style="margin-top: 50px" class="table">
             <thead>
             <tr>
                 <th>ID</th>
@@ -90,6 +90,7 @@
             <thead>
             <tr>
                 <th>ID</th>
+                <th>ID User</th>
                 <th>Title</th>
                 <th>Amount</th>
                 <th>Date</th>
@@ -101,21 +102,64 @@
             <c:forEach var="financement" items="${financements}">
                 <tr id="${financement.id}">
                     <td>${financement.id}</td>
+                    <td>${financement.id_user}</td>
                     <td>${financement.title}</td>
                     <td>${financement.montant}</td>
                     <td>${financement.date}</td>
                     <td>${financement.status}</td>
-                <td style="position: relative;color: black">
-                    <button onclick="downloadPDF(${financement.id})">Download</button>
-                </td>
+                    <td style="position: relative;color: black;column-width: 20px">
+                        <button onclick="downloadPDF(${financement.id})"><i class="bi bi-download"></i></button>
+                        <c:if test="${financement.status eq 'En traitement'}">
+                            <button id="${financement.id}ap" onclick="approveFinancement(${financement.id})"><i class="bi bi-check2"></i></button>
+                            <button id="${financement.id}ref"onclick="refuseFinancement(${financement.id})"><i class="bi bi-x-lg"></i></button>
+                        </c:if>
+                    </td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
     </c:otherwise>
 </c:choose>
+<footer>
+    <p class="text-center text-white-50">
+        © 2024 ParaEnsias. All rights reserved.
+    </p>
+</footer>
 
     <script>
+
+        function hideButtons(apId,refId) {
+            document.getElementById(apId).style.display = 'none';
+            document.getElementById(refId).style.display = 'none';
+        }
+        function approveFinancement(id) {
+            hideButtons(id + 'ap',id + 'ref');
+    $.ajax({
+        url: 'ApproveFinancementServlet?id=' + id,
+        method: 'GET',
+        success: function() {
+            document.getElementById(id).querySelector('td:nth-child(6)').innerText = 'Approuvée';
+            console.log('Approved financement with id:', id);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error approving financement:', status, error);
+        }
+    });
+        }
+        function refuseFinancement(id) {
+            hideButtons(id + 'ap',id + 'ref');
+            $.ajax({
+                url: 'RefuseFinancementServlet?id=' + id,
+                method: 'GET',
+                success: function() {
+                    document.getElementById(id).querySelector('td:nth-child(6)').innerText = 'Refusée';
+                    console.log('Refused financement with id:', id);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error refusing financement:', status, error);
+                }
+            });
+        }
         function deleteFinancement(id) {
     $.ajax({
         url: 'DeleteFinancementServlet?id=' + id,

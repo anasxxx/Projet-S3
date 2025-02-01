@@ -7,9 +7,29 @@ public class AnnonceBean implements Serializable
 {
     int id;
     int id_user;
-    String statut;
     Date date;
     String caption;
+    int id_club;
+    String club_name;
+
+    public int getId_club() {
+        return id_club;
+    }
+
+    public void setId_club(int id_club) {
+        this.id_club = id_club;
+    }
+
+    public String getClub_name() {
+        return club_name;
+    }
+
+    public void setClub_name(String club_name) {
+        this.club_name = club_name;
+    }
+
+
+
 
     public String getCaption() {
         return caption;
@@ -25,14 +45,6 @@ public class AnnonceBean implements Serializable
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    public String getStatut() {
-        return statut;
-    }
-
-    public void setStatut(String statut) {
-        this.statut = statut;
     }
 
     public int getId_user() {

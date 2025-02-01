@@ -39,7 +39,8 @@
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
-            background: linear-gradient(-90deg,var(--light-color),var(--background-color));
+            background: url("img/bg.jpg");
+            background-size: cover;
         }
 
 

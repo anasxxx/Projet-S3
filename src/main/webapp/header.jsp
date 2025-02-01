@@ -236,7 +236,9 @@
         }
 
         /* Table styles */
+        /* CSS */
         .table {
+            table-layout: auto; /* Adjust column width based on content */
             margin-top: 100px;
             background-color: rgba(0, 0, 0, 0.1); /* Light background */
             border-radius: 15px; /* Increased roundness for a more modern look */
@@ -248,8 +250,7 @@
             border-collapse: collapse;
             font-size: 0.9em;
             font-family: sans-serif;
-            max-width: 100vw;
-            min-width: 400px;
+            max-width: 70%;
             box-shadow: 0 0 10px black;
         }
 
@@ -258,12 +259,15 @@
             color: var(--light-color);
             text-align: left;
         }
-        .table th{
+
+        .table th {
             background-color: var(--light-color);
         }
+
         .table td {
             position: relative;
             padding: 12px 15px;
+            white-space: nowrap; /* Prevent content from wrapping */
         }
 
         .table tbody tr.active-row {
@@ -287,10 +291,12 @@
             background-color: #ff9f00; /* Bright orange on hover */
             cursor: pointer;
         }
+
         .table tbody td button {
-            background:transparent;
+            background: transparent;
             border: none;
         }
+
         .table tbody td button:hover {
             background-color: grey;
             cursor: pointer;
@@ -298,14 +304,11 @@
             transition: all 0.3s ease;
             transform: scale(1.1);
         }
+
         .table td:first-child {
             font-weight: bold; /* Bold first column */
             color: #007bff; /* Highlight first column in blue */
         }
-
-        .table tbody tr:hover td {
-        }
-
 
         .table tfoot td {
             background-color: rgba(0, 0, 0, 0.1); /* Footer color */
@@ -334,7 +337,14 @@
             outline: none;
             box-shadow: 0 0 5px rgba(255, 87, 34, 0.5); /* Bright focus effect for better visibility */
         }
-        /* CSS */
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .table th, .table td {
+                padding: 12px; /* Smaller padding for mobile view */
+                font-size: 14px; /* Smaller font for mobile */
+            }
+        }
         .download-btn {
             display: none;
             position: absolute;
@@ -349,6 +359,15 @@
 
         .download-btn:hover {
             background-color: #218838;
+        }
+        footer{
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+            padding: 0;
+            font-size: 14px;
         }
         /* Responsive styling */
         @media (max-width: 768px) {
@@ -447,7 +466,159 @@
         .filter-btn:hover {
             background-color: #218838;
         }
+        .announcements {
+            margin-top: 100px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 80%;
 
+        }
+
+        .announcements h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .announcements ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .announcements li {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .announcements li .header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .announcements li img {
+            border-radius: 15px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .announcements li .description {
+            font-size: 12px;
+            padding: 10px;
+        }
+
+        .announcements li .actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .announcements li .actions button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: #007bff;
+            font-size: 14px;
+        }
+
+        .announcements li .actions button:hover {
+            text-decoration: underline;
+        }
+        .announcements li .profile-pic {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+            resize: none;
+        }
+
+        .upload {
+            width: 50%;
+            background: #eee;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 1em;
+            margin: 2em;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .upload:hover {background: #fff; border-color: #ddd; }
+
+        .upload input {
+            cursor: pointer;
+            display: block;
+            position:absolute;
+            top:0;
+            left: 0;
+
+            /* start of transparency styles */
+            opacity:0;
+            -moz-opacity:0;
+            filter:alpha(opacity:0);
+            /* end of transparency styles */
+            background: red;
+            z-index:2; /* bring the real upload interactivity up front */
+            width:100%;
+            height: 100%;
+        }
+        .upload:hover input {
+            display: block;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .grid-item {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .complaints-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .complaint-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+            transition: ease-in-out 0.5s;
+        }
+
+        .complaint-item:hover {
+            transform: scale(1.05);
+            transition: ease-in-out 0.3s;
+        }
+
+        .complaint-item .header {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .complaint-item .description {
+            font-size: 14px;
+        }
         /* Media query for smaller screens */
         @media (max-width: 768px) {
             .filter-bar {
@@ -510,13 +681,10 @@
                             <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/GetusersServlet">Users</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Complaints</a>
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/ComplaintServlet">Complaints</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Announcements</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white px-3 py-2 rounded-3" href="#">Announcements to approve</a>
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/AnnouncementsServlet">Announcements</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/AllFinancesServlet">Financing requests</a>
@@ -540,6 +708,10 @@
                         <li class="nav-item">
                             <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/ClubsServlet">Clubs</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/ComplaintServlet">Complaints</a>
+                        </li>
+
                     </c:when>
 
                 </c:choose>
