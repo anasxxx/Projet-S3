@@ -76,7 +76,7 @@
                     <td>${financement.date}</td>
                     <td>${financement.status}</td>
                     <td style="position: relative;color: black">
-                        <button onclick="downloadPDF(${financement.id})"><i class="bi bi-download"></i></button>
+                        <button style="target: none" onclick="downloadPDF(${financement.id})"><i class="bi bi-download"></i></button>
                         <button onclick="deleteFinancement(${financement.id})"><i class="bi bi-trash"></i></button>
                     </td>
                 </tr>
@@ -108,7 +108,7 @@
                     <td>${financement.date}</td>
                     <td>${financement.status}</td>
                     <td style="position: relative;color: black;column-width: 20px">
-                        <button onclick="downloadPDF(${financement.id})"><i class="bi bi-download"></i></button>
+                        <button style="target: none" onclick="downloadPDF(${financement.id})"><i class="bi bi-download"></i></button>
                         <c:if test="${financement.status eq 'En traitement'}">
                             <button id="${financement.id}ap" onclick="approveFinancement(${financement.id})"><i class="bi bi-check2"></i></button>
                             <button id="${financement.id}ref"onclick="refuseFinancement(${financement.id})"><i class="bi bi-x-lg"></i></button>

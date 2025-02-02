@@ -41,7 +41,7 @@
         .sidebar a {
         }
 
-        .card {
+        .card {;
             border: none;
             transition: transform 0.3s;
         }
@@ -558,7 +558,33 @@
         }
 
         .upload:hover {background: #fff; border-color: #ddd; }
-
+        .comp{
+            float: right;
+            background: transparent;
+            border-radius: 7px;
+            border: none;
+        }
+        .comp:hover{
+            background-color: grey;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            transform: scale(1.1);
+        }
+        .sm{
+            float: right;
+            background: transparent;
+            border-radius: 7px;
+            border: none;
+            margin: 6px;
+            font-size: 24px;
+        }
+        .sm:hover{
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            transform: scale(1.1);
+        }
         .upload input {
             cursor: pointer;
             display: block;
@@ -603,10 +629,11 @@
             border-radius: 5px;
             background-color: #f9f9f9;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-            transition: ease-in-out 0.5s;
+            transition: ease-in-out 0.3s;
         }
 
         .complaint-item:hover {
+            cursor: pointer;
             transform: scale(1.05);
             transition: ease-in-out 0.3s;
         }
@@ -689,16 +716,22 @@
                         <li class="nav-item">
                             <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/AllFinancesServlet">Financing requests</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}//GetclubsServlet">Clubs</a>
+                        </li>
                     </c:when>
                     <c:when test="${sessionScope.role eq 'Chef'}">
                         <li class="nav-item">
-                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/ComplaintsServlet">Complaints</a>
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/ComplaintServlet">Complaints</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/AnnouncementsServlet">Announcements</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/FinancesServlet">My Finances</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}//GetclubsServlet">Clubs</a>
                         </li>
                     </c:when>
                     <c:when test="${sessionScope.role eq 'Étudiant'}">
@@ -711,7 +744,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/ComplaintServlet">Complaints</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}//GetclubsServlet">Clubs</a>
+                        </li>
                     </c:when>
 
                 </c:choose>

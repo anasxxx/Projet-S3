@@ -25,18 +25,37 @@ public class ComplaintServlet extends HttpServlet {
     {
         HttpSession session = request.getSession(false);
         int id= (int) session.getAttribute("id");
+        String role = (String) session.getAttribute("role");
 
         List<ReclamationBean> reclamations= new ArrayList<ReclamationBean>();
 
-        try
+        if (role.equals("P"))
         {
-            reclamations= (List<ReclamationBean>) CRUD.getAllReclamations();
+            try
+            {
+                reclamations= (List<ReclamationBean>) CRUD.getAllReclamations();
 
+            }
+            catch (Exception e)
+            {
+                throw new RuntimeException(e);
+            }
         }
-        catch (Exception e)
+        else
         {
-            throw new RuntimeException(e);
+            try
+            {
+                reclamations= (List<ReclamationBean>) CRUD.getReclamationsByUserId(id);
+            }
+            catch (Exception e)
+            {
+                throw new RuntimeException(e);
+            }
         }
+
+
+
+
         request.setAttribute("complaints", reclamations);
         RequestDispatcher dispatcher = request.getRequestDispatcher("complaints.jsp");
         dispatcher.forward(request, response);

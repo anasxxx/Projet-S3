@@ -1,6 +1,7 @@
 package Bean;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 
 public class ClubBean implements Serializable
@@ -10,6 +11,39 @@ public class ClubBean implements Serializable
     String name;
     String description;
     String acronym;
+    Timestamp creation_date;
+    String fb;
+
+    public String getIg() {
+        return ig;
+    }
+
+    public void setIg(String ig) {
+        this.ig = ig;
+    }
+
+    public String getFb() {
+        return fb;
+    }
+
+    public void setFb(String fb) {
+        this.fb = fb;
+    }
+
+    public String getYt() {
+        return yt;
+    }
+
+    public void setYt(String yt) {
+        this.yt = yt;
+    }
+
+    String ig;
+    String yt;
+
+    public Timestamp getCreation_date() {return creation_date;}
+
+    public void setCreation_date(Timestamp creation_date) {this.creation_date = creation_date;}
 
     public String getAcronym() {
         return acronym;

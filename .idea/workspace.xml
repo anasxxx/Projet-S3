@@ -10,31 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68a7f483-d36e-4290-a24d-0854b9bb7dab" name="Changes" comment="pdf creaction finalized&#10;front updated">
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/AnnouncementsServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/ComplaintServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/SubmitAnouncementServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/announcements.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/complaints.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/Club Japonais Ensias.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/Club Sportif.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/Ensias IT Club.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/Fintech.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/House Of Arts.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/Information Security Club.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/Olympiades Ensias.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/data/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/subtle-prism.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/lub d'nitiative ationale pour le éveloppement umain.png" afterPathEscaped="$PROJECT_DIR$/src/main/webapp/img/𝗖lub d'𝗜nitiative 𝗡ationale pour le 𝗗éveloppement 𝗛umain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/ApproveComplaintServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/DisapproveComplaintServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/clubs.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/AnnonceBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/AnnonceBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/ClubBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/ClubBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/ReclamationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/ReclamationBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/JAVA/DAO/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/CRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/ApproveFinancementServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/ApproveFinancementServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/RefuseFinancementServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/RefuseFinancementServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/ComplaintServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/ComplaintServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/GetclubsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/GetclubsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/complaints.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/complaints.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/finances.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/finances.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/users.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/lub d'nitiative ationale pour le éveloppement umain.png" beforePathEscaped="$PROJECT_DIR$/src/main/webapp/img/𝗖lub d'𝗜nitiative 𝗡ationale pour le 𝗗éveloppement 𝗛umain.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/Club d'Initiative Nationale pour le Développement Humain.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,33 +85,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 10.1.31.executor": "Run",
-    "Tomcat Server.Tomcat 10.1.311.executor": "Run",
-    "Tomcat Server.meta.jsp.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/pc/Desktop/Projet S3/src/main/JAVA",
-    "last_opened_file_path": "C:/Users/othma/Desktop/Save/Projet S3/src/main/webapp/img/data",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.49885058",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.31.executor&quot;: &quot;Run&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.311.executor&quot;: &quot;Run&quot;,
+    &quot;Tomcat Server.meta.jsp.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/pc/Desktop/Projet S3/src/main/JAVA&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/othma/Desktop/Save/Projet S3/src/main/webapp/img/data&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.49885058&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
@@ -353,7 +342,10 @@
       <workItem from="1738165991983" duration="5392000" />
       <workItem from="1738171422631" duration="369000" />
       <workItem from="1738171960703" duration="10768000" />
-      <workItem from="1738349210558" duration="8102000" />
+      <workItem from="1738349210558" duration="8372000" />
+      <workItem from="1738442912823" duration="1295000" />
+      <workItem from="1738444230350" duration="3071000" />
+      <workItem from="1738508268152" duration="9964000" />
     </task>
     <task id="LOCAL-00001" summary="Dao &#10;DB creation&#10;DB connection&#10;Bean creation">
       <option name="closed" value="true" />

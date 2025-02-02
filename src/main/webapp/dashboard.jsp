@@ -57,6 +57,7 @@
 
         }
         .card {
+            min-height: 120px;
             box-shadow: black 0px 0px 5px;
             background: rgba(240,240,240,0.5);
             backdrop-filter: blur(10px);
@@ -532,12 +533,12 @@
                     <div class="row text-center mt-4">
                         <!-- Clubs -->
                         <div class="col-md-6">
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath}//GetclubsServlet">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title ">Clubs</h5>
-                                        <p class="card-text ">
-                                            Create announcements to keep everyone informed about the latest updates and news.
+                                        <p class="card-text">
+                                            Check out our various Ensias clubs and their respective details and know more about them
                                         </p>
                                     </div>
                                 </div>
@@ -564,9 +565,9 @@
         <c:when test="${sessionScope.role eq 'Chef'}">
             <section class="mt-5">
                 <div class="container">
-                    <div class="row text-center">
+                    <div class="row text-center mt-4">
                         <!-- Complaints -->
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <a href="${pageContext.request.contextPath}/ComplaintServlet">
                                 <div class="card">
                                     <div class="card-body">
@@ -580,7 +581,7 @@
                         </div>
 
                         <!-- Announcements -->
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <a href="${pageContext.request.contextPath}/AnnouncementsServlet">
                                 <div class="card">
                                     <div class="card-body">
@@ -592,14 +593,28 @@
                                 </div>
                             </a>
                         </div>
+                    </div>
+                    <div class="row text-center mt-4">
                         <!-- Financing Requests -->
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <a href="${pageContext.request.contextPath}/FinancesServlet">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title ">Request Financing</h5>
                                         <p class="card-text ">
                                             Submit a financing request for your club and track its approval status.
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="${pageContext.request.contextPath}//GetclubsServlet">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title ">Clubs</h5>
+                                        <p class="card-text">
+                                            Check out our various Ensias clubs and their respective details
                                         </p>
                                     </div>
                                 </div>
@@ -613,7 +628,7 @@
         <c:when test="${sessionScope.role eq 'Étudiant'}">
             <section class="mt-5">
                 <div class="container">
-                    <div class="row text-center">
+                    <div class="row text-center mt-4">
                         <!-- Announcements -->
                         <div class="col-md-4">
                             <a href="#">

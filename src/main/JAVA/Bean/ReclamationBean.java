@@ -5,10 +5,15 @@ import java.sql.Date;
 
 public class ReclamationBean implements Serializable {
     int id;
+    String fullname;
     int id_user;
     String description;
     Date date;
     String status;
+
+    public String getFullname() {return fullname;}
+
+    public void setFullname(String fullname) {this.fullname = fullname;}
 
     public int getId() {
         return id;
