@@ -662,7 +662,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title ">Clubs</h5>
                                         <p class="card-text ">
-                                            Create announcements to keep everyone informed about the latest updates and news.
+                                            Check out our various Ensias clubs and their respective details
                                         </p>
                                     </div>
                                 </div>

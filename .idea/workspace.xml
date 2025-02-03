@@ -9,11 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68a7f483-d36e-4290-a24d-0854b9bb7dab" name="Changes" comment="pdf creaction finalized&#10;front updated">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/announcements.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/announcements.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="68a7f483-d36e-4290-a24d-0854b9bb7dab" name="Changes" comment="pdf creaction finalized&#10;front updated" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -335,7 +331,7 @@
       <workItem from="1738442912823" duration="1295000" />
       <workItem from="1738444230350" duration="3071000" />
       <workItem from="1738508268152" duration="10785000" />
-      <workItem from="1738574862671" duration="315000" />
+      <workItem from="1738574862671" duration="725000" />
     </task>
     <task id="LOCAL-00001" summary="Dao &#10;DB creation&#10;DB connection&#10;Bean creation">
       <option name="closed" value="true" />
