@@ -657,7 +657,7 @@
                         </div>
                         <!-- Clubs -->
                         <div class="col-md-4">
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath}//GetclubsServlet">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title ">Clubs</h5>
