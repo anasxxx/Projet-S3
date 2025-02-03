@@ -52,14 +52,18 @@
         <div style="display: flex;flex-direction: column; place-content: center; place-items: center">
             <label for="caption" class="form-label">Description</label>
             <textarea class="form-control my-input" id="caption" name="caption" required></textarea>
-            <input type="file" class="upload" id="photo" name="photo" accept="image/*" required>
         </div>
         <div class="col-md-10 d-flex justify-content-center">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
 </c:if>
+<c:if test="${sessionScope.role eq 'P'}">
     <h2>Complaints</h2>
+</c:if>
+<c:if test="${sessionScope.role ne 'P'}">
+    <h2> My Complaints</h2>
+</c:if>
     <div class="grid-container">
         <c:forEach var="complaint" items="${complaints}">
                 <div class="complaint-item" title="Click to validate complaint">

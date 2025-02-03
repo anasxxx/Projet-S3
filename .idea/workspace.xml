@@ -10,20 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68a7f483-d36e-4290-a24d-0854b9bb7dab" name="Changes" comment="pdf creaction finalized&#10;front updated">
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/ApproveComplaintServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/DisapproveComplaintServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/clubs.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/ClubBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/ClubBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/Bean/ReclamationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/Bean/ReclamationBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/DAO/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/CRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/ComplaintServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/ComplaintServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/GetclubsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/GetclubsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/complaints.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/complaints.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/finances.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/finances.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/announcements.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/announcements.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/lub d'nitiative ationale pour le éveloppement umain.png" beforePathEscaped="$PROJECT_DIR$/src/main/webapp/img/𝗖lub d'𝗜nitiative 𝗡ationale pour le 𝗗éveloppement 𝗛umain.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/Club d'Initiative Nationale pour le Développement Humain.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -345,7 +334,8 @@
       <workItem from="1738349210558" duration="8372000" />
       <workItem from="1738442912823" duration="1295000" />
       <workItem from="1738444230350" duration="3071000" />
-      <workItem from="1738508268152" duration="9964000" />
+      <workItem from="1738508268152" duration="10785000" />
+      <workItem from="1738574862671" duration="315000" />
     </task>
     <task id="LOCAL-00001" summary="Dao &#10;DB creation&#10;DB connection&#10;Bean creation">
       <option name="closed" value="true" />

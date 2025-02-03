@@ -8,17 +8,19 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/SubmitAnouncementServlet" method="post" enctype="multipart/form-data" class="row g-3 justify-content-center" style="max-width: 600px; margin-top: 100px;">
-    <h2 class="text-center">Submit an announcement</h2>
-    <div style="display: flex;flex-direction: column; place-content: center; place-items: center">
-        <label for="caption" class="form-label">Description</label>
-        <textarea class="form-control my-input" id="caption" name="caption" required></textarea>
-        <input type="file" class="upload" id="photo" name="photo" accept="image/*" required>
-    </div>
-    <div class="col-md-10 d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-</form>
+<c:if test="${sessionScope.role ne 'Étudiant'}">
+    <form action="${pageContext.request.contextPath}/SubmitAnouncementServlet" method="post" enctype="multipart/form-data" class="row g-3 justify-content-center" style="max-width: 600px; margin-top: 100px;">
+        <h2 class="text-center">Submit an announcement</h2>
+        <div style="display: flex;flex-direction: column; place-content: center; place-items: center">
+            <label for="caption" class="form-label">Description</label>
+            <textarea class="form-control my-input" id="caption" name="caption" required></textarea>
+            <input type="file" class="upload" id="photo" name="photo" accept="image/*" required>
+        </div>
+        <div class="col-md-10 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</c:if>
 <div class="announcements">
     <h2>Announcements</h2>
     <ul>

@@ -739,9 +739,6 @@
                             <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/AnnouncementsServlet">Announcements</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/ClubsServlet">Clubs</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-white px-3 py-2 rounded-3" href="${pageContext.request.contextPath}/ComplaintServlet">Complaints</a>
                         </li>
                         <li class="nav-item">
