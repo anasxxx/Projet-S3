@@ -18,33 +18,9 @@
             justify-content: center;
             align-items: center;
             font-family: 'Poppins', sans-serif;
+            background: url("img/bg.jpg") no-repeat center center/cover;
         }
-
-        /* Dynamic Background */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #6a11cb, #2575fc, #ff6b6b, #ffcc00);
-            background-size: 300% 300%;
-            animation: gradient 15s ease infinite;
-            z-index: -1;
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
+        
 
         /* Login Container */
         .login-container {

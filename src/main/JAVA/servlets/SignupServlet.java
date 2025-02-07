@@ -50,6 +50,7 @@ public class SignupServlet extends HttpServlet
         }
         catch (Exception e)
         {
+            System.out.println(e);
             throw new RuntimeException(e);
         }
 

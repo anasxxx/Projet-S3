@@ -6,8 +6,40 @@
 <head>
     <title>Financing Requests</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            all: unset;
+            height: max-content;
+            border-radius: 10px;
+        }
+        button:hover {
+            background-color: grey;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
+<script>
+    function deleteAnnonce(id) {
+        $.ajax({
+            url: 'DeleteAnnouncementServlet?id=' + id,
+            method: 'GET',
+            success: function() {
+                document.getElementById(id).remove();
+                console.log('Deleted announcement with id:', id);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error deleting announcement:', status, error);
+            }
+    });
+    }
+</script>
 <c:if test="${sessionScope.role ne 'Étudiant'}">
     <form action="${pageContext.request.contextPath}/SubmitAnouncementServlet" method="post" enctype="multipart/form-data" class="row g-3 justify-content-center" style="max-width: 600px; margin-top: 100px;">
         <h2 class="text-center">Submit an announcement</h2>
@@ -25,13 +57,21 @@
     <h2>Announcements</h2>
     <ul>
         <c:forEach var="annonce" items="${annonces}">
-            <li>
+            <li id="${annonce.id}">
                 <div class="header">
                     <div>
                         <img class="profile-pic" src="${pageContext.request.contextPath}/img/${annonce.club_name}.png" alt="logo">
                         <span>${annonce.club_name}</span>
                         <div style="padding: 10px">${annonce.date}</div>
                     </div>
+                    <c:if test="${sessionScope.role eq 'P'}">
+                        <button style="float: right;" onclick="deleteAnnonce(${annonce.id})"><i class="bi bi-trash"></i></button>
+                    </c:if>
+                    <c:if test="${sessionScope.role eq 'Chef'}">
+                        <c:if test="${sessionScope.id eq annonce.id_user}">
+                            <button style="float: right" onclick="deleteAnnonce(${annonce.id})"><i class="bi bi-trash"></i></button>
+                        </c:if>
+                    </c:if>
 
                 </div>
                 <div class="description">

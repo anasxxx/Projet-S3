@@ -158,7 +158,6 @@
             padding: 10px;
             border: 1px solid blue;
             border-radius: 4px;
-            color: pink;
         }
         /* Content styles */
         .content {

@@ -631,7 +631,7 @@
                     <div class="row text-center mt-4">
                         <!-- Announcements -->
                         <div class="col-md-4">
-                            <a href="#">
+                            <a href="${pageContext.request.contextPath}/AnnouncementsServlet">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title ">Announcements</h5>

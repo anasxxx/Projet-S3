@@ -47,7 +47,7 @@
     }
 </script>
 <c:if test="${sessionScope.role ne 'P'}">
-    <form action="${pageContext.request.contextPath}/SubmitAnouncementServlet" method="post" enctype="multipart/form-data" class="row g-3 justify-content-center" style="max-width: 600px; margin-top: 100px;">
+    <form action="${pageContext.request.contextPath}/SubmitComplaintServlet" method="post" enctype="multipart/form-data" class="row g-3 justify-content-center" style="max-width: 600px; margin-top: 100px;">
         <h2 class="text-center">Submit a complaint</h2>
         <div style="display: flex;flex-direction: column; place-content: center; place-items: center">
             <label for="caption" class="form-label">Description</label>
@@ -76,7 +76,7 @@
                             ${complaint.description}
                     </div>
                     <div>
-                        <c:if test="${sessionScope.role eq 'p'}">
+                        <c:if test="${sessionScope.role eq 'P'}">
                             <c:choose>
                                 <c:when test="${complaint.status eq 'Traitée'}">
                                     <span id="${complaint.id}" style="color: green">${complaint.status}</span>
@@ -88,7 +88,7 @@
                                 </c:otherwise>
                             </c:choose>
                         </c:if>
-                        <c:if test="${sessionScope.role ne 'p'}">
+                        <c:if test="${sessionScope.role ne 'P'}">
                             <c:choose>
                                 <c:when test="${complaint.status eq 'Traitée'}">
                                     <span id="${complaint.id}" style="color: green">${complaint.status}</span>

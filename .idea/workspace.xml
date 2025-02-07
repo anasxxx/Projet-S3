@@ -9,7 +9,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68a7f483-d36e-4290-a24d-0854b9bb7dab" name="Changes" comment="pdf creaction finalized&#10;front updated" />
+    <list default="true" id="68a7f483-d36e-4290-a24d-0854b9bb7dab" name="Changes" comment="pdf creaction finalized&#10;front updated">
+      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/DeleteAnnouncementServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/SubmitComplaintServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/JAVA/DAO/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/CRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/JAVA/DAO/EmailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/DAO/EmailSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/JAVA/servlets/SignupServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/JAVA/servlets/SignupServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/DAO.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/DAO.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/announcements.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/announcements.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/complaints.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/complaints.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/dashboard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/emailsent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/emailsent.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/finances.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/finances.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -332,7 +346,10 @@
       <workItem from="1738444230350" duration="3071000" />
       <workItem from="1738508268152" duration="10785000" />
       <workItem from="1738574862671" duration="725000" />
-      <workItem from="1738585094198" duration="524000" />
+      <workItem from="1738585094198" duration="696000" />
+      <workItem from="1738857808261" duration="1454000" />
+      <workItem from="1738867729671" duration="2847000" />
+      <workItem from="1738871549431" duration="11911000" />
     </task>
     <task id="LOCAL-00001" summary="Dao &#10;DB creation&#10;DB connection&#10;Bean creation">
       <option name="closed" value="true" />

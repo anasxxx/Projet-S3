@@ -1,5 +1,6 @@
 package DAO;
 
+
 import Bean.*;
 
 import java.net.InetAddress;
@@ -315,6 +316,7 @@ public class CRUD {
                 EmailSender.SendMail(user.getEmail(), subject, message);
             } catch (Exception e) {
                 System.out.println(e);
+                System.out.println("Error sending email");
                 throw new RuntimeException(e);
             }
             try {
@@ -343,7 +345,7 @@ public class CRUD {
         try (PreparedStatement stmt1 = connection.prepareStatement(query)) {
             stmt1.setString(1, user.getMassar());
             ResultSet rs = stmt1.executeQuery();
-            if (rs.next()) {
+            if (!rs.next()) {
                 query = "INSERT INTO user (first_name, last_name, phone, sexe, massar, password) " +
                         "VALUES (?, ?, ?, ?, ?, ?)";
 
@@ -409,7 +411,7 @@ public class CRUD {
         JDBCConnectionManager DAO = new JDBCConnectionManager();
         Connection connection = DAO.getConnection();
         PreparedStatement stmt = null;
-        String query = "select * from annonce join user on annonce.id_user=user.id join club on user.id=club.id_president";
+        String query = "select * from annonce join user on annonce.id_user=user.id join club on user.id=club.id_president order by date desc";
         List<AnnonceBean> annonces = new ArrayList<AnnonceBean>();
         try {
             stmt = connection.prepareStatement(query);
@@ -464,6 +466,7 @@ public class CRUD {
         String query = "DELETE FROM annonce WHERE id = ?";
 
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, id);
             stmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting annonce id" + id, e);
@@ -653,11 +656,11 @@ public class CRUD {
         String subject = "Password Reset Request for ParaEnsias";
         try {
             EmailSender mail = new EmailSender();
+            mail.SendMail(user.getEmail(), subject, message);
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Error sending email");
             throw new RuntimeException(e);
         }
-        EmailSender.SendMail(user.getEmail(), subject, message);
 
         String query = "update user set token=? ,token_validity=? ,updated_at=? where massar=?";
 
@@ -696,8 +699,18 @@ public class CRUD {
         }
     }
 
-    public static void addReclamation(ReclamationBean reclamation) {
+        public static void addReclamation(ReclamationBean reclamation) {
+    JDBCConnectionManager DAO = new JDBCConnectionManager();
+    Connection connection = DAO.getConnection();
+    String query = "INSERT INTO reclamation (id_user, description) VALUES (?, ?)";
 
+    try (PreparedStatement stmt = connection.prepareStatement(query)) {
+        stmt.setInt(1, reclamation.getId_user());
+        stmt.setString(2, reclamation.getDescription());
+        stmt.executeUpdate();
+    } catch (SQLException e) {
+        throw new RuntimeException("Error adding reclamation", e);
+    }
     }
 
 
